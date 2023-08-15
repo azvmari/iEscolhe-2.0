@@ -8,7 +8,7 @@ Objetivo:
 
 O iEscolhe tem como objetivo criar um programa que ajude as pessoas a terem uma alimentação mais focada em comidas caseiras ao invés de industrializados, com o propósito de permitir ao usuário ter uma alimentação mais saudável e, consequentemente, uma vida melhor!
 
-Telas do projeto: 
+Telas do projeto::
 
 [](https://user-images.githubusercontent.com/76132917/203614683-15ca1004-f648-47e3-a962-4e8e06a31be6.png)
 
