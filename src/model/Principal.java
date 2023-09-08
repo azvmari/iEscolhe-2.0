@@ -16,7 +16,7 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage palco) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/view/TelaReceitasCadastradas.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/view/TelaInicial.fxml"));
         Scene scene = new Scene(root);
         Principal.palco.setTitle("iEscolhe");
         Principal.palco.getIcons().add(new Image("/view/images/logo-vermelha.png"));
