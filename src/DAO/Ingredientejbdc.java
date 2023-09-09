@@ -1,28 +1,29 @@
 
+package Dao;
+
 import model.*;
 
 import java.sql.*;
 import java.util.*;
 
-public class Ingredientejbdc implements IngredienteDAO{
+public class Ingredientejbdc implements InterfaceIngredienteDAO {
 
     @Override
-    public List<Ingrediente> getAllIngredientes() {
-    
+    public ArrayList<Ingrediente> listarIngredientes() {
 
         String sql = "select * from ingrediente";
         PreparedStatement pst;
         Connection conexao;
         ResultSet rs;
-        List<Ingrediente> ingredientes = null;
+        ArrayList<Ingrediente> ingredientes = null;
         try {
-            conexao = new ConnectionFactory ().getConnection();
+            conexao = new ConnectionFactory().getConnection();
             pst = conexao.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs != null) {
                 ingredientes = new ArrayList<Ingrediente>();
                 while (rs.next()) {
-                  Ingrediente c = new Ingrediente();
+                    Ingrediente c = new Ingrediente();
                     // c.set(rs.getInt("id"));
                     c.setNome(rs.getString("nome"));
                     c.setCategoria(rs.getString("categoria"));
@@ -36,15 +37,15 @@ public class Ingredientejbdc implements IngredienteDAO{
             System.out.println("Erro ao listar ");
         }
         return ingredientes;
-       
+
     }
 
     @Override
-    public void createIngrediente(Ingrediente ingredientes) {
-        String sql = "insert into ingredientes (nome, categoria)";
+    public void cadastrarIngrediente(Ingrediente ingredientes) {
+        String sql = "insert into ingrediente (nome, categoria)";
         PreparedStatement pst;
         Connection conexao;
-        try{
+        try {
             conexao = new ConnectionFactory().getConnection();
             pst = conexao.prepareStatement(sql);
             pst.setString(1, ingredientes.getNome().toUpperCase());
@@ -57,34 +58,33 @@ public class Ingredientejbdc implements IngredienteDAO{
     }
 
     @Override
-public Ingrediente readIngrediente(long id) {
-    String sql = "select * from ingredientes where id = ?";
-    PreparedStatement pst;
-    Connection conexao;
-    ResultSet rs;
-    Ingrediente ingredientes = null;
-    try {
-        conexao = new ConnectionFactory().getConnection();
-        pst = conexao.prepareStatement(sql);
-        pst.setLong(1, id);  // Corrigido o índice do parâmetro
-        rs = pst.executeQuery();
-        if (rs.next()) {  // Use rs.next() para mover para o primeiro resultado
-            Ingrediente i = new Ingrediente();
-            // i.setCategoria(rs.getInt("id"));
-            i.setNome(rs.getString("nome"));
-            i.setCategoria(rs.getString("categoria"));
-            ingredientes = i;  // Atribua o objeto i ao ingredientes se houver resultado
+    public Ingrediente readIngrediente(long id) {
+        String sql = "select * from ingredientes where id = ?";
+        PreparedStatement pst;
+        Connection conexao;
+        ResultSet rs;
+        Ingrediente ingredientes = null;
+        try {
+            conexao = new ConnectionFactory().getConnection();
+            pst = conexao.prepareStatement(sql);
+            pst.setLong(1, id); // Corrigido o índice do parâmetro
+            rs = pst.executeQuery();
+            if (rs.next()) { // Use rs.next() para mover para o primeiro resultado
+                Ingrediente i = new Ingrediente();
+                // i.setCategoria(rs.getInt("id"));
+                i.setNome(rs.getString("nome"));
+                i.setCategoria(rs.getString("categoria"));
+                ingredientes = i; // Atribua o objeto i ao ingredientes se houver resultado
+            }
+            rs.close();
+            pst.close();
+            conexao.close(); // Não esqueça de fechar a conexão
+        } catch (SQLException ex) {
+            System.out.println("Erro ao listar ingredientes");
+            ex.printStackTrace(); // Melhorar o tratamento de exceção para depuração
         }
-        rs.close();
-        pst.close();
-        conexao.close();  // Não esqueça de fechar a conexão
-    } catch (SQLException ex) {
-        System.out.println("Erro ao listar ingredientes");
-        ex.printStackTrace(); // Melhorar o tratamento de exceção para depuração
+        return ingredientes;
     }
-    return ingredientes;
-}
-
 
     @Override
     public void updateIngrediente(Ingrediente ingredientes) {
@@ -120,9 +120,30 @@ public Ingrediente readIngrediente(long id) {
         }
     }
 
-  
+    public int salvarQuantidadeIngredientes() {
+        String sql = "SELECT COUNT(*) AS total FROM ingrediente";
+        PreparedStatement pst;
+        Connection conexao;
+        ResultSet rs;
+        int total = 0;
 
-    
-    
+        try {
+            conexao = new ConnectionFactory().getConnection();
+            pst = conexao.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                total = rs.getInt("total");
+            }
+
+            rs.close();
+            pst.close();
+            conexao.close();
+        } catch (SQLException ex) {
+            System.out.println("Erro ao contar elementos");
+        }
+
+        return total;
+    }
 
 }

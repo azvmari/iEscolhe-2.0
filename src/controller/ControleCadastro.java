@@ -112,50 +112,52 @@ public class ControleCadastro {
                 controleReceita.cadastrarReceitas("Bife ao Molho Mostarda", listaModoPreparo.get(30));
         }
 
-        public void cadastrarIngrediente() {
-                ci.cadastrarIngredientes("Leite", "cafe-da-manha_sobremesa");
-                ci.cadastrarIngredientes("Queijo", "cafe-da-manha_almoco");
-                ci.cadastrarIngredientes("Ovo", "cafe-da-manha_sobremesa");
-                ci.cadastrarIngredientes("Pão", "cafe-da-manha");
-                ci.cadastrarIngredientes("Tapioca", "cafe-da-manha");
-                ci.cadastrarIngredientes("Manteiga", "cafe-da-manha_almoco_sobremesa");
-                ci.cadastrarIngredientes("Presunto", "cafe-da-manha");
-                ci.cadastrarIngredientes("Mortadela", "cafe-da-manha");
-                ci.cadastrarIngredientes("Iogurte", "cafe-da-manha_sobremesa");
-                ci.cadastrarIngredientes("Polvilho", "cafe-da-manha");
-                ci.cadastrarIngredientes("Aveia", "cafe-da-manha");
-                ci.cadastrarIngredientes("Fubá", "cafe-da-manha");
-                ci.cadastrarIngredientes("Arroz", "almoco");
-                ci.cadastrarIngredientes("Feijão", "almoco");
-                ci.cadastrarIngredientes("Carne", "almoco");
-                ci.cadastrarIngredientes("Frango", "almoco");
-                ci.cadastrarIngredientes("Calabresa", "almoco");
-                ci.cadastrarIngredientes("Ketchup", "almoco");
-                ci.cadastrarIngredientes("Mostarda", "almoco");
-                ci.cadastrarIngredientes("Creme de leite", "almoco_sobremesa");
-                ci.cadastrarIngredientes("Batata palha", "almoco");
-                ci.cadastrarIngredientes("Feijão preto", "almoco");
-                ci.cadastrarIngredientes("Macarrão", "almoco");
-                ci.cadastrarIngredientes("Tomate", "almoco");
-                ci.cadastrarIngredientes("Maionese", "almoco");
-                ci.cadastrarIngredientes("Farinha de trigo", "almoco");
-                ci.cadastrarIngredientes("Fermento biológico", "almoco");
-                ci.cadastrarIngredientes("Molho de tomate", "almoco");
-                ci.cadastrarIngredientes("Biscoito", "sobremesa");
-                ci.cadastrarIngredientes("Gelatina", "sobremesa");
-                ci.cadastrarIngredientes("Canela", "sobremesa");
-                ci.cadastrarIngredientes("Sorvete", "sobremesa");
-                ci.cadastrarIngredientes("Leite condensado", "sobremesa");
-                ci.cadastrarIngredientes("Amido de milho", "sobremesa");
-                ci.cadastrarIngredientes("Chocolate em pó", "sobremesa");
-                ci.cadastrarIngredientes("Maracujá", "sobremesa");
-                ci.cadastrarIngredientes("Óleo", "cafe-da-manha"); // 36
-                ci.cadastrarIngredientes("Açúcar", "sobremesa"); // 37
-                ci.cadastrarIngredientes("Requeijão", "cafe-da-manha"); // 38
-                ci.cadastrarIngredientes("Nutella", "cafe-da-manha"); // 39
-                ci.cadastrarIngredientes("Calda", "sobremesa"); // 40
-
-        }
+        /*
+         * public void cadastrarIngrediente() {
+         * ci.cadastrarIngredientes("Leite", "cafe-da-manha_sobremesa");
+         * ci.cadastrarIngredientes("Queijo", "cafe-da-manha_almoco");
+         * ci.cadastrarIngredientes("Ovo", "cafe-da-manha_sobremesa");
+         * ci.cadastrarIngredientes("Pão", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Tapioca", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Manteiga", "cafe-da-manha_almoco_sobremesa");
+         * ci.cadastrarIngredientes("Presunto", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Mortadela", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Iogurte", "cafe-da-manha_sobremesa");
+         * ci.cadastrarIngredientes("Polvilho", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Aveia", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Fubá", "cafe-da-manha");
+         * ci.cadastrarIngredientes("Arroz", "almoco");
+         * ci.cadastrarIngredientes("Feijão", "almoco");
+         * ci.cadastrarIngredientes("Carne", "almoco");
+         * ci.cadastrarIngredientes("Frango", "almoco");
+         * ci.cadastrarIngredientes("Calabresa", "almoco");
+         * ci.cadastrarIngredientes("Ketchup", "almoco");
+         * ci.cadastrarIngredientes("Mostarda", "almoco");
+         * ci.cadastrarIngredientes("Creme de leite", "almoco_sobremesa");
+         * ci.cadastrarIngredientes("Batata palha", "almoco");
+         * ci.cadastrarIngredientes("Feijão preto", "almoco");
+         * ci.cadastrarIngredientes("Macarrão", "almoco");
+         * ci.cadastrarIngredientes("Tomate", "almoco");
+         * ci.cadastrarIngredientes("Maionese", "almoco");
+         * ci.cadastrarIngredientes("Farinha de trigo", "almoco");
+         * ci.cadastrarIngredientes("Fermento biológico", "almoco");
+         * ci.cadastrarIngredientes("Molho de tomate", "almoco");
+         * ci.cadastrarIngredientes("Biscoito", "sobremesa");
+         * ci.cadastrarIngredientes("Gelatina", "sobremesa");
+         * ci.cadastrarIngredientes("Canela", "sobremesa");
+         * ci.cadastrarIngredientes("Sorvete", "sobremesa");
+         * ci.cadastrarIngredientes("Leite condensado", "sobremesa");
+         * ci.cadastrarIngredientes("Amido de milho", "sobremesa");
+         * ci.cadastrarIngredientes("Chocolate em pó", "sobremesa");
+         * ci.cadastrarIngredientes("Maracujá", "sobremesa");
+         * ci.cadastrarIngredientes("Óleo", "cafe-da-manha"); // 36
+         * ci.cadastrarIngredientes("Açúcar", "sobremesa"); // 37
+         * ci.cadastrarIngredientes("Requeijão", "cafe-da-manha"); // 38
+         * ci.cadastrarIngredientes("Nutella", "cafe-da-manha"); // 39
+         * ci.cadastrarIngredientes("Calda", "sobremesa"); // 40
+         * 
+         * }
+         */
 
         ControleIngredienteReceita cr = new ControleIngredienteReceita();
 

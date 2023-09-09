@@ -5,12 +5,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+import Dao.Ingredientejbdc;
 import controller.ControleAvaliacao;
 import data.IngredienteReceitaDados;
 import data.IngredientesDados;
 import data.ReceitaDados;
-
-
 
 public class Receita implements Serializable {
     // Atributos
@@ -33,23 +32,21 @@ public class Receita implements Serializable {
 
     // Metodos
 
-    public double mediaAvaliacao(){
+    public double mediaAvaliacao() {
         ControleAvaliacao ca = new ControleAvaliacao();
         double media = 0;
         int quantidadeAvaliacoes = 0;
-        for(Avaliacao a : ca.listarAvaliacoes()){
-            if(a.getIdReceita() == this.identificador){     //ve se nao da pra otimizar isso.....
+        for (Avaliacao a : ca.listarAvaliacoes()) {
+            if (a.getIdReceita() == this.identificador) { // ve se nao da pra otimizar isso.....
                 media += a.getAvaliacao();
                 quantidadeAvaliacoes++;
             }
         }
 
-        
         double mediaReceita = media / quantidadeAvaliacoes;
         BigDecimal bd = new BigDecimal(mediaReceita).setScale(1, RoundingMode.HALF_EVEN);
         return bd.doubleValue();
     }
-
 
     // Getter & Setter
     public String getNome() {
@@ -116,7 +113,8 @@ public class Receita implements Serializable {
         for (IngredienteReceita ir : ird.listarIngredienteReceitas()) {
             if (ir.getIdReceita() == this.identificador) {
                 for (Ingrediente i : ii.listarIngredientes()) {
-                    if (i.getIdentificador() == ir.getIdIngrediente()) {
+                    if (i.getIdentificador() == ir.getIdIngrediente()) { // Aqui nao esta encontrando esse
+                                                                         // identificador, tem que mudar
                         ingredientes.add(i.getNome() + " - " + ir.getQuantidade());
                     }
                 }
@@ -126,6 +124,8 @@ public class Receita implements Serializable {
         return ingredientes;
     }
 
-    IngredientesDados ii = new IngredientesDados();
-    
+    // IngredientesDados ii = new IngredientesDados();
+
+    Ingredientejbdc ii = new Ingredientejbdc();
+
 }

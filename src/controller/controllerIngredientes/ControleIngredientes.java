@@ -1,13 +1,18 @@
 package controller.controllerIngredientes;
 
 import java.util.ArrayList;
+
+import Dao.Ingredientejbdc;
+import Dao.InterfaceIngredienteDAO;
 import data.IngredientesDados;
 import model.Ingrediente;
 import model.Interfaces.*;
 
 public class ControleIngredientes {
 
-    InterfaceIngrediente id = new IngredientesDados();
+    // InterfaceIngrediente id = new IngredientesDados();
+
+    InterfaceIngredienteDAO id = new Ingredientejbdc();
 
     public void cadastrarIngredientes(String nome, String categoria) {
         Ingrediente I = new Ingrediente(nome, categoria);
