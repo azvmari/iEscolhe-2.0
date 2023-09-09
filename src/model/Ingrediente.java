@@ -15,7 +15,9 @@ public class Ingrediente implements Serializable {
         this.identificador = IngredientesDados.contador;
         this.categoria = categoria;
     }
-
+public Ingrediente (){
+    
+}
     public String getNome() {
         return this.nome;
     }
