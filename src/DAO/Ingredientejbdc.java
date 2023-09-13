@@ -11,7 +11,7 @@ public class Ingredientejbdc implements InterfaceIngredienteDAO {
     @Override
     public ArrayList<Ingrediente> listarIngredientes() {
 
-        String sql = "select * from ingrediente";
+        String sql = "select i.id As id, i.nome AS nome, i.categoria AS categoria from ingrediente AS i";
         PreparedStatement pst;
         Connection conexao;
         ResultSet rs;
@@ -24,7 +24,7 @@ public class Ingredientejbdc implements InterfaceIngredienteDAO {
                 ingredientes = new ArrayList<Ingrediente>();
                 while (rs.next()) {
                     Ingrediente c = new Ingrediente();
-                    // c.set(rs.getInt("id"));
+                    c.setIdentificador(rs.getInt("id"));
                     c.setNome(rs.getString("nome"));
                     c.setCategoria(rs.getString("categoria"));
                     ingredientes.add(c);
@@ -34,8 +34,9 @@ public class Ingredientejbdc implements InterfaceIngredienteDAO {
             pst.close();
             conexao.close();
         } catch (SQLException ex) {
-            System.out.println("Erro ao listar ");
+            System.out.println("Erro ao listar ingredientes ");
         }
+
         return ingredientes;
 
     }

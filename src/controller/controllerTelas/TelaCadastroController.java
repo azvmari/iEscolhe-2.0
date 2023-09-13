@@ -4,7 +4,9 @@ import model.Principal;
 import model.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
-import data.UsuarioDados;
+
+import Dao.Usuariojdbc;
+//import data.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,7 +37,9 @@ public class TelaCadastroController implements Initializable {
         String usuario = campoUsuario.getText().toString().trim();
         String senha = campoSenha.getText().toString().trim();
 
-        UsuarioDados cliente = new UsuarioDados();
+        // UsuarioDados cliente = new UsuarioDados();
+
+        Usuariojdbc cliente = new Usuariojdbc();
 
         if (nome.equals("") || usuario.equals("") || senha.equals("")) {
             alerta.setText("Campos não podem ficar em branco");

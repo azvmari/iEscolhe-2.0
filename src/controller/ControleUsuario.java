@@ -1,13 +1,18 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import Dao.InterfaceUsuarioDao;
+import Dao.Usuariojdbc;
 import data.*;
 import model.*;
 import model.Interfaces.*;
 
 public class ControleUsuario {
-    InterfaceUsuario ud = new UsuarioDados();
+    // InterfaceUsuario ud = new UsuarioDados();
+
+    InterfaceUsuarioDao ud = new Usuariojdbc();
 
     public String cadastrarUsuario(String nome, String usuario, String senha) {
         Usuario u = new Usuario(nome, usuario, senha);
@@ -18,7 +23,8 @@ public class ControleUsuario {
         return ud.fazerLoginUsuario(usuario, senha);
     }
 
-    public ArrayList<Usuario> listarUsuarios() {
+    public ArrayList<Usuario> listarUsuarios() throws SQLException {
+
         return ud.listarUsuarios();
     }
 }

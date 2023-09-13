@@ -4,6 +4,8 @@ import model.Principal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Dao.Usuariojdbc;
 import data.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +37,7 @@ public class TelaMenuDeOpcoesController implements Initializable {
     @FXML
     public void botaoSair() {
         try {
-            UsuarioDados.usuarioLogado = null;
+            Usuariojdbc.usuarioLogado = null;
             Principal.root = FXMLLoader.load(getClass().getResource("/view/TelaLogin.fxml"));
             Scene scene = new Scene(Principal.root);
             Principal.palco.setScene(scene);

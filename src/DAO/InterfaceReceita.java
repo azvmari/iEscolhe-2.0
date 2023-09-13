@@ -1,13 +1,14 @@
-package model.Interfaces;
+package Dao;
 
 import java.util.ArrayList;
 
 import model.Receita;
 
 public interface InterfaceReceita {
+
     void cadastrarReceita(Receita R);
 
-    void salvarQuantidadeReceitas();
+    int salvarQuantidadeReceitas();
 
-    ArrayList<Receita> listarReceitas();
+    ArrayList<ReceitaDTO> listarReceitas();
 }

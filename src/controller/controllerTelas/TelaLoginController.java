@@ -5,7 +5,8 @@ import model.Principal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import data.UsuarioDados;
+import Dao.Usuariojdbc;
+//import data.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,7 +40,8 @@ public class TelaLoginController implements Initializable {
             return;
         }
 
-        UsuarioDados uDados = new UsuarioDados();
+        // UsuarioDados uDados = new UsuarioDados();
+        Usuariojdbc uDados = new Usuariojdbc();
         String resposta = uDados.fazerLoginUsuario(usuario, senha);
 
         if (!resposta.equals("")) {

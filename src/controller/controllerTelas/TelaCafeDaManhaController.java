@@ -23,7 +23,7 @@ public class TelaCafeDaManhaController implements Initializable {
 
     @FXML
     private HBox boxIngredientes;
-    private ArrayList<CheckBox> checks = new ArrayList<>();
+    private ArrayList<CheckBox> checks = new ArrayList<CheckBox>();
 
     @FXML
     public void botaoVoltar() {

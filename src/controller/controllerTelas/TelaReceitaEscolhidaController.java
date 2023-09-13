@@ -7,6 +7,7 @@ import model.Receita;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Dao.ReceitaDTO;
 import controller.ControleAvaliacao;
 import data.AvaliacaoDados;
 import data.FavoritoDados;
@@ -23,7 +24,7 @@ import javafx.scene.image.ImageView;
 
 public class TelaReceitaEscolhidaController implements Initializable {
 
-    public static Receita receitaEscolhida = null;
+    public static ReceitaDTO receitaEscolhida = null;
 
     Image imagemEstrelaVazia = new Image(getClass().getResourceAsStream("/view/images/icon-estrela-vazia.png"));
     Image imagemEstrelaPreenchida = new Image(getClass().getResourceAsStream("/view/images/icon-estrela.png"));
@@ -177,7 +178,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
                 modoDePreparoTexto += "\n• " + ingrediente;
             }
             modoDePreparoTexto += "\n\nMODO DE PREPARO:\n";
-            modoDePreparoTexto += receitaEscolhida.getModoPreparo() + "\n\n";
+            modoDePreparoTexto += receitaEscolhida.getDescricao() + "\n\n";
             modoDePreparo.setText(modoDePreparoTexto);
             fonte.setText("Fonte: " + receitaEscolhida.getFonte());
         }

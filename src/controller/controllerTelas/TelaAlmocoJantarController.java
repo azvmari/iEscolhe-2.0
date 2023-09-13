@@ -3,6 +3,7 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Ingrediente;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -35,7 +36,7 @@ public class TelaAlmocoJantarController implements Initializable {
     }
 
     @FXML
-    public void botaoConcluir() {
+    public void botaoConcluir() throws SQLException {
         ArrayList<Ingrediente> listaIngredientesTotais = new ArrayList<>();
         ArrayList<Integer> listaIngredientesTotaisID = new ArrayList<>();
         try {

@@ -4,6 +4,9 @@ import model.Principal;
 import model.Receita;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Dao.ReceitaDTO;
+import Dao.Receitajdbc;
 import data.FavoritoDados;
 import data.ReceitaDados;
 import data.UsuarioDados;
@@ -44,7 +47,8 @@ public class TelaFavoritosController implements Initializable {
     }
 
     private void preencherLista() {
-        ReceitaDados rd = new ReceitaDados();
+        Receitajdbc rd = new Receitajdbc();
+        // ReceitaDados rd = new ReceitaDados();
         FavoritoDados fd = new FavoritoDados();
         listaReceitas.getChildren().clear();
 
@@ -53,7 +57,7 @@ public class TelaFavoritosController implements Initializable {
             scroll.setVbarPolicy(ScrollBarPolicy.NEVER);
         }
 
-        for (Receita receita : rd.listarReceitas()) {
+        for (ReceitaDTO receita : rd.listarReceitas()) {
             if (fd.listarReceitasFavoritas(UsuarioDados.usuarioLogado.getUsuario())
                     .contains(receita.getIdentificador())) {
                 HBox botaoReceita = new HBox();
@@ -64,7 +68,7 @@ public class TelaFavoritosController implements Initializable {
                 Label ingredientes = new Label();
 
                 nomeReceita.setText(receita.getNome() + " ");
-                avaliacao.setText(receita.mediaAvaliacao() + " ★");  //mudei de getAvaliacao pra mediaAvaliacao
+                avaliacao.setText(receita.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
 
                 String ingredientesTexto = "Ingredientes:\n";
                 for (String ingrediente : receita.getIngredientes()) {

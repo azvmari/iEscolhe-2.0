@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
+import Dao.IngredienteReceitajdbc;
 import Dao.Ingredientejbdc;
 import controller.ControleAvaliacao;
 import data.IngredienteReceitaDados;
@@ -15,14 +16,14 @@ public class Receita implements Serializable {
     // Atributos
     private String nome;
     private int identificador;
-    private String modoPreparo;
+    private int modoPreparo;
     private int avaliacao;
     private String fonte;
     private boolean favorito;
 
     // Construtor
 
-    public Receita(String nome, String modoPreparo) {
+    public Receita(String nome, int modoPreparo) {
         this.nome = nome;
         this.identificador = ReceitaDados.contador;
         this.modoPreparo = modoPreparo;
@@ -61,11 +62,11 @@ public class Receita implements Serializable {
         return identificador;
     }
 
-    public String getModoPreparo() {
+    public int getModoPreparo() {
         return modoPreparo;
     }
 
-    public void setModoPreparo(String modoPreparo) {
+    public void setModoPreparo(int modoPreparo) {
         this.modoPreparo = modoPreparo;
     }
 
@@ -93,7 +94,9 @@ public class Receita implements Serializable {
         this.favorito = favorito;
     }
 
-    IngredienteReceitaDados ird = new IngredienteReceitaDados();
+    // IngredienteReceitaDados ird = new IngredienteReceitaDados();
+
+    IngredienteReceitajdbc ird = new IngredienteReceitajdbc();
 
     public ArrayList<Integer> getIngredientesId() {
         ArrayList<Integer> ingredientes = new ArrayList<>();
@@ -117,6 +120,7 @@ public class Receita implements Serializable {
                                                                          // identificador, tem que mudar
                         ingredientes.add(i.getNome() + " - " + ir.getQuantidade());
                     }
+                    // System.out.println(i.getIdentificador());
                 }
             }
         }

@@ -17,6 +17,7 @@ public class ConnectionFactory {
             return conexao;
         } catch (SQLException e) {
 
+            // System.out.println("erro aqui");
             throw new RuntimeException(e);
 
         }

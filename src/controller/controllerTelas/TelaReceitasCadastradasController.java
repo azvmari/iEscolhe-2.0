@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Dao.ReceitaDTO;
 import controller.ReceitasSelecionadas;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,7 +62,7 @@ public class TelaReceitasCadastradasController implements Initializable {
   private void preencherLista() {
     listaReceitas.getChildren().clear();
 
-    for (Receita receita : ReceitasSelecionadas.receitasPossiveis()) {
+    for (ReceitaDTO receita : ReceitasSelecionadas.receitasPossiveis()) {
       HBox botaoReceita = new HBox();
       HBox hbox = new HBox();
       VBox vbox = new VBox();

@@ -2,13 +2,16 @@ package controller;
 
 import java.util.ArrayList;
 
+import Dao.IngredienteReceitajdbc;
 import data.IngredienteReceitaDados;
 import model.IngredienteReceita;
 import model.Interfaces.InterfaceIngredienteReceita;
 
 public class ControleIngredienteReceita {
-    
-    InterfaceIngredienteReceita ird = new IngredienteReceitaDados();
+
+    // InterfaceIngredienteReceita ird = new IngredienteReceitaDados();
+
+    Dao.InterfaceIngredienteReceita ird = new IngredienteReceitajdbc();
 
     public void cadastrarIngredienteReceita(int idIngrediente, int idReceita, String quantidade) {
         IngredienteReceita ir = new IngredienteReceita(idIngrediente, idReceita, quantidade);
