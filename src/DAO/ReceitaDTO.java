@@ -2,6 +2,7 @@ package Dao;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import controller.ControleAvaliacao;
@@ -68,7 +69,7 @@ public class ReceitaDTO {
         return ingredientes;
     }
 
-    public ArrayList<String> getIngredientes() {
+    public ArrayList<String> getIngredientes() throws SQLException {
         ArrayList<String> ingredientes = new ArrayList<>();
 
         for (IngredienteReceita ir : ird.listarIngredienteReceitas()) {
@@ -102,6 +103,13 @@ public class ReceitaDTO {
         return bd.doubleValue();
     }
 
+    Receitajdbc re = new Receitajdbc();
+
+    public String getModoDePreparo(String nomeReceita) {
+
+        return re.getModoDePreparo(nomeReceita);
+
+    }
     // IngredientesDados ii = new IngredientesDados();
 
     Ingredientejbdc ii = new Ingredientejbdc();

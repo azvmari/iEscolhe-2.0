@@ -73,7 +73,7 @@ public class Receitajdbc implements InterfaceReceita {
                 receitas = new ArrayList<ReceitaDTO>();
                 while (rs.next()) {
                     ReceitaDTO r = new ReceitaDTO();
-                    r.setIdentificador(rs.getInt("id"));
+                    r.setIdentificador(rs.getInt("idReceita"));
                     r.setNome(rs.getString("nome"));
                     r.setDescricao(rs.getString("descricao"));
                     receitas.add(r);
@@ -87,5 +87,27 @@ public class Receitajdbc implements InterfaceReceita {
         }
         return receitas;
 
+    }
+
+    public String getModoDePreparo(String nomeReceita) {
+        String sql = "SELECT mp.descricao FROM mododepreparo AS mp INNER JOIN receita AS r ON mp.id = r.id_mododepreparo WHERE r.nome = ?";
+        PreparedStatement pst;
+        Connection conexao;
+        ResultSet rs;
+        String modoDePreparo = "";
+        try {
+            conexao = new ConnectionFactory().getConnection();
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, nomeReceita);
+            rs = pst.executeQuery();
+            if (rs != null) {
+                modoDePreparo = rs.getString("descricao");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar modo de preparo");
+        }
+        return modoDePreparo;
     }
 }

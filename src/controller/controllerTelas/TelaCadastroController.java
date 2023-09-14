@@ -3,6 +3,7 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Usuario;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.Usuariojdbc;

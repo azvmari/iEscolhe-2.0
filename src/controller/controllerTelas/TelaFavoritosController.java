@@ -3,6 +3,7 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.ReceitaDTO;
@@ -43,10 +44,15 @@ public class TelaFavoritosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preencherLista();
+        try {
+            preencherLista();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    private void preencherLista() {
+    private void preencherLista() throws SQLException {
         Receitajdbc rd = new Receitajdbc();
         // ReceitaDados rd = new ReceitaDados();
         FavoritoDados fd = new FavoritoDados();

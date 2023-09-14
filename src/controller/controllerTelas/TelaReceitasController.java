@@ -3,6 +3,7 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.ReceitaDTO;
@@ -40,10 +41,15 @@ public class TelaReceitasController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preencherLista();
+        try {
+            preencherLista();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    private void preencherLista() {
+    private void preencherLista() throws SQLException {
         listaReceitas.getChildren().clear();
 
         if (ReceitasSelecionadas.receitasPossiveis().size() == 0) {

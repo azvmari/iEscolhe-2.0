@@ -85,6 +85,6 @@ public class IngredienteReceitajdbc implements InterfaceIngredienteReceita {
             System.out.println("Erro ao listar ingrediente_Receita");
         }
         return ingredientes_receitas;
-
     }
+
 }

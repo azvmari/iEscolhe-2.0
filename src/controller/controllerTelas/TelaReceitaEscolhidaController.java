@@ -5,6 +5,7 @@ import model.Favorito;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.ReceitaDTO;
@@ -161,12 +162,18 @@ public class TelaReceitaEscolhidaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preencherReceita();
-        verificarFavoritado();
-        verificarAvaliacao();
+        try {
+            preencherReceita();
+            // verificarFavoritado();
+            // verificarAvaliacao();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 
-    private void preencherReceita() {
+    private void preencherReceita() throws SQLException {
         if (receitaEscolhida != null) {
             nomeReceita.setText("→ " + receitaEscolhida.getNome() + ":");
             avaliacao.setText(receitaEscolhida.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
@@ -178,7 +185,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
                 modoDePreparoTexto += "\n• " + ingrediente;
             }
             modoDePreparoTexto += "\n\nMODO DE PREPARO:\n";
-            modoDePreparoTexto += receitaEscolhida.getDescricao() + "\n\n";
+            modoDePreparoTexto += receitaEscolhida.descricao + "\n\n";
             modoDePreparo.setText(modoDePreparoTexto);
             fonte.setText("Fonte: " + receitaEscolhida.getFonte());
         }

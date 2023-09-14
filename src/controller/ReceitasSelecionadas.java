@@ -1,5 +1,6 @@
 package controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Dao.ReceitaDTO;
@@ -13,7 +14,7 @@ public class ReceitasSelecionadas {
     public static ArrayList<Integer> ingredientesSelecionadosID = new ArrayList<>();
     static ArrayList<ReceitaDTO> receitas = cr.listarReceitas();
 
-    public static ArrayList<ReceitaDTO> receitasPossiveis() {
+    public static ArrayList<ReceitaDTO> receitasPossiveis() throws SQLException {
         ArrayList<ReceitaDTO> result = new ArrayList<>();
 
         for (ReceitaDTO r : receitas) {

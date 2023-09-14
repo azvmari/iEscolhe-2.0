@@ -11,4 +11,6 @@ public interface InterfaceReceita {
     int salvarQuantidadeReceitas();
 
     ArrayList<ReceitaDTO> listarReceitas();
+
+    String getModoDePreparo(String nomereceita);
 }
