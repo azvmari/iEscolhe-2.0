@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Dao.IngredienteReceitajdbc;
@@ -33,7 +34,7 @@ public class Receita implements Serializable {
 
     // Metodos
 
-    public double mediaAvaliacao() {
+    public double mediaAvaliacao() throws SQLException {
         ControleAvaliacao ca = new ControleAvaliacao();
         double media = 0;
         int quantidadeAvaliacoes = 0;

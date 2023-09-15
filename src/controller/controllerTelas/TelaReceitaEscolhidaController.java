@@ -8,7 +8,9 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Dao.Avaliacaojdbc;
 import Dao.ReceitaDTO;
+import Dao.Usuariojdbc;
 import controller.ControleAvaliacao;
 import data.AvaliacaoDados;
 import data.FavoritoDados;
@@ -155,7 +157,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
     public void botaoEnviarAvaliacao() {
         // fazer coisa aqui!
         ControleAvaliacao ca = new ControleAvaliacao();
-        ca.cadastrarAvaliacao(UsuarioDados.usuarioLogado.getUsuario(), nota, receitaEscolhida.getIdentificador());
+        ca.cadastrarAvaliacao(Usuariojdbc.usuarioLogado.getIdUsuario(), nota, receitaEscolhida.getIdentificador());
         avaliacaoEnviada.setText("Receita avaliada!");
         avaliar.setVisible(false);
     }
@@ -165,7 +167,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
         try {
             preencherReceita();
             // verificarFavoritado();
-            // verificarAvaliacao();
+            verificarAvaliacao();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -204,9 +206,10 @@ public class TelaReceitaEscolhidaController implements Initializable {
     }
 
     private void verificarAvaliacao() {
-        AvaliacaoDados ad = new AvaliacaoDados();
+        // AvaliacaoDados ad = new AvaliacaoDados();
+        Avaliacaojdbc ad = new Avaliacaojdbc();
         for (Avaliacao a : ad.listarAvaliacoes()) {
-            if (a.getUsuario().equals(UsuarioDados.usuarioLogado.getUsuario())
+            if (a.getIdUsuario() == Usuariojdbc.usuarioLogado.getIdUsuario()
                     && a.getIdReceita() == receitaEscolhida.getIdentificador()) {
                 avaliar.setVisible(false);
                 avaliacaoEnviada.setText("Receita avaliada!");

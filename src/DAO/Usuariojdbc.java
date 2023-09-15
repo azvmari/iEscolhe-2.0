@@ -75,7 +75,7 @@ public class Usuariojdbc implements InterfaceUsuarioDao {
     }
 
     public ArrayList<Usuario> listarUsuarios() {
-        String sql = "select nome AS nome, usuario_nome AS usuario_nome, senha AS senha FROM usuario";
+        String sql = "select  id AS id, nome AS nome, usuario_nome AS usuario_nome, senha AS senha FROM usuario";
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
         // new ConnectionFactory();
@@ -85,6 +85,7 @@ public class Usuariojdbc implements InterfaceUsuarioDao {
 
             while (rs.next()) {
                 Usuario c = new Usuario();
+                c.setIdUsuario(rs.getInt("id"));
                 c.setNome(rs.getString("nome"));
                 c.setUsuario(rs.getString("usuario_nome"));
                 c.setSenha(rs.getString("senha"));

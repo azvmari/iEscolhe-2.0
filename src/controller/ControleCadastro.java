@@ -314,10 +314,10 @@ public class ControleCadastro {
         int notaAleatoria = 0;
 
         public void cadastrarAvaliacao() {
-                for (int k = 0; k < controleReceita.listarReceitas().size(); k++) {
+                for (int k = 1; k <= controleReceita.listarReceitas().size(); k++) {
                         for (int j = 0; j < 15; j++) {
                                 notaAleatoria = (int) Math.floor((Math.random() * (max - min + 1) + min));
-                                ca.cadastrarAvaliacao("drica", notaAleatoria, k);
+                                ca.cadastrarAvaliacao(1, notaAleatoria, k);
                         }
 
                 }

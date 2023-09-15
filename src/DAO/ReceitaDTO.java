@@ -87,7 +87,7 @@ public class ReceitaDTO {
         return ingredientes;
     }
 
-    public double mediaAvaliacao() {
+    public double mediaAvaliacao() throws SQLException {
         ControleAvaliacao ca = new ControleAvaliacao();
         double media = 0;
         int quantidadeAvaliacoes = 0;
