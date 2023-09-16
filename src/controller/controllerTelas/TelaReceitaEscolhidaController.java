@@ -189,7 +189,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
             modoDePreparoTexto += "\n\nMODO DE PREPARO:\n";
             modoDePreparoTexto += receitaEscolhida.descricao + "\n\n";
             modoDePreparo.setText(modoDePreparoTexto);
-            fonte.setText("Fonte: " + receitaEscolhida.getFonte());
+            fonte.setText("Fonte: " + receitaEscolhida.fonte);
         }
     }
 

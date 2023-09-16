@@ -98,7 +98,7 @@ public class Favoritojdbc implements InterfaceFavorito {
             if (rs != null) {
                 lista = new ArrayList<Integer>();
                 while (rs.next()) {
-                    int i = rs.getInt("idusuario");
+                    int i = rs.getInt("idreceita");
                     lista.add(i);
                 }
             }
@@ -110,7 +110,32 @@ public class Favoritojdbc implements InterfaceFavorito {
         }
 
         return lista;
+    }
 
+    public int QuantidadeReceitasFavoritas(int idUsuario) {
+        String sql = "SELECT COUNT(*) AS total FROM ingrediente";
+        PreparedStatement pst;
+        Connection conexao;
+        ResultSet rs;
+        int total = 0;
+
+        try {
+            conexao = new ConnectionFactory().getConnection();
+            pst = conexao.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+            if (rs != null && rs.next()) {
+                total = rs.getInt("total");
+            }
+
+            rs.close();
+            pst.close();
+            conexao.close();
+        } catch (SQLException ex) {
+            System.out.println("Erro ao contar elementos");
+        }
+
+        return total;
     }
 
 }

@@ -42,9 +42,9 @@ public class Usuariojdbc implements InterfaceUsuarioDao {
             try {
                 conexao = connectionFactory.getConnection();
                 pst = conexao.prepareStatement(sql);
-                pst.setString(1, usuario.getNome().toUpperCase());
-                pst.setString(2, usuario.getUsuario().toUpperCase());
-                pst.setString(3, usuario.getSenha().toUpperCase());
+                pst.setString(1, usuario.getNome());
+                pst.setString(2, usuario.getUsuario());
+                pst.setString(3, usuario.getSenha());
                 pst.execute();
                 pst.close();
             } catch (SQLException ex) {

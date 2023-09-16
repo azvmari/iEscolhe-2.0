@@ -49,8 +49,8 @@ public class Ingredientejbdc implements InterfaceIngredienteDAO {
         try {
             conexao = new ConnectionFactory().getConnection();
             pst = conexao.prepareStatement(sql);
-            pst.setString(1, ingredientes.getNome().toUpperCase());
-            pst.setString(2, ingredientes.getCategoria().toUpperCase());
+            pst.setString(1, ingredientes.getNome());
+            pst.setString(2, ingredientes.getCategoria());
             pst.execute();
             pst.close();
         } catch (SQLException ex) {

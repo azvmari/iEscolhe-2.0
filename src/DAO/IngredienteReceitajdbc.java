@@ -13,7 +13,7 @@ public class IngredienteReceitajdbc implements InterfaceIngredienteReceita {
 
     @Override
     public void cadastrarIngredienteReceita(IngredienteReceita IR) {
-        String sql = "insert into ingrediente_receita (idingrediente,idreceita, quantidade)";
+        String sql = "insert into ingrediente_receita (idingrediente, idreceita, quantidade) VALUES (?, ? , ?) ";
         PreparedStatement pst;
         Connection conexao;
         try {
@@ -21,7 +21,7 @@ public class IngredienteReceitajdbc implements InterfaceIngredienteReceita {
             pst = conexao.prepareStatement(sql);
             pst.setInt(1, IR.getIdIngrediente());
             pst.setInt(2, IR.getIdReceita());
-            pst.setString(2, IR.getQuantidade());
+            pst.setString(3, IR.getQuantidade());
             pst.execute();
             pst.close();
         } catch (SQLException ex) {

@@ -29,7 +29,7 @@ public class Receitajdbc implements InterfaceReceita {
 
     @Override
     public int salvarQuantidadeReceitas() {
-        String sql = "SELECT COUNT(*) AS quantidade_itens\r\n" +
+        String sql = "SELECT COUNT(*) AS quantidade_itens" +
                 "FROM receita;";
         PreparedStatement pst;
         Connection conexao;
@@ -60,7 +60,7 @@ public class Receitajdbc implements InterfaceReceita {
         String sql = "SELECT r.id AS idReceita, r.nome AS nome, " +
                 " m.descricao from receita AS r " +
                 "INNER JOIN mododepreparo AS m  ON " +
-                "r.id_mododepreparo = m.id ";
+                "r.id_mododepreparo = m.id ORDER BY r.nome ASC ";
         PreparedStatement pst;
         Connection conexao;
         ResultSet rs;
