@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
@@ -28,6 +30,12 @@ public class TelaReceitasCadastradasController implements Initializable {
   private ScrollPane scroll;
 
   @FXML
+  private MenuItem itemTodas, itemCafe, itemAlmoco, itemSobremesa;
+
+  @FXML
+  private MenuButton botaoMenu;
+
+  @FXML
   public void botaoVoltar() {
     try {
       Principal.root = FXMLLoader.load(getClass().getResource("/view/" + Principal.telaMenuAnterior + ".fxml"));
@@ -39,18 +47,27 @@ public class TelaReceitasCadastradasController implements Initializable {
 
   @FXML
   public void filtraTodas() {
+    botaoMenu.setText("TODAS");
   }
 
   @FXML
   public void filtraCafeDaManha() {
+    botaoMenu.setText("CAFÉ DA MANHÃ");
   }
 
   @FXML
   public void filtraAlmocoJantar() {
+    botaoMenu.setText("ALMOÇO/JANTAR");
   }
 
   @FXML
   public void filtraSobremesa() {
+    botaoMenu.setText("SOBREMESA");
+  }
+
+  @FXML
+  public void pesquisa() {
+
   }
 
   @Override

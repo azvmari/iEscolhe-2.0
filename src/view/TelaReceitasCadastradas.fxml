@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -26,7 +27,7 @@
                            <children>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <TextField prefHeight="40.0" prefWidth="538.0" promptText="Pesquise uma receita">
+                                    <TextField onKeyReleased="#pesquisa" prefHeight="40.0" prefWidth="504.0" promptText="Pesquise uma receita">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -34,16 +35,22 @@
                                           <Insets left="5.0" />
                                        </HBox.margin>
                                     </TextField>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: transparent;">
+                                    <Button mnemonicParsing="false" onAction="#pesquisa" style="-fx-background-color: transparent;">
                                        <graphic>
-                                          <ImageView fitHeight="39.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@images/icon-lupa.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
                                     </Button>
-                                    <MenuButton mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: #FFFFFF;" text=" Classificar por:">
+                                    <MenuButton fx:id="botaoMenu" maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" text=" Classificar por:" textAlignment="CENTER">
                                       <items>
                                         <MenuItem fx:id="itemTodas" mnemonicParsing="false" onAction="#filtraTodas" text="Todas" />
                                         <MenuItem fx:id="itemCafe" mnemonicParsing="false" onAction="#filtraCafeDaManha" text="Café da manhã" />
@@ -54,7 +61,7 @@
                                           <Font size="15.0" />
                                        </font>
                                        <HBox.margin>
-                                          <Insets left="18.0" />
+                                          <Insets left="17.0" />
                                        </HBox.margin>
                                        <graphic>
                                           <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
@@ -63,10 +70,13 @@
                                              </image>
                                           </ImageView>
                                        </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </MenuButton>
                                  </children>
                                  <padding>
-                                    <Insets top="10.0" />
+                                    <Insets top="5.0" />
                                  </padding>
                               </HBox>
                               <VBox fx:id="listaReceitas" prefHeight="200.0" prefWidth="100.0">
@@ -147,6 +157,9 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="906.0">
                      <children>

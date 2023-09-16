@@ -88,21 +88,21 @@
                         <Insets top="20.0" />
                      </padding>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox prefHeight="100.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#botaoMinhaConta" style="-fx-background-color: transparent;" text=" Minha conta &gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#botaoAlterarSenha" style="-fx-background-color: transparent;" text=" Alterar senha &gt;" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/icon-utilizador-2.png" />
+                                    <Image url="@images/icon-senha.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <padding>
-                              <Insets left="115.0" top="28.0" />
+                              <Insets left="110.0" top="28.0" />
                            </padding>
                         </Button>
                      </children>

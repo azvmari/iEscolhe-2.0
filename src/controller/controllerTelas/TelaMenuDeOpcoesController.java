@@ -13,6 +13,16 @@ import javafx.scene.Scene;
 public class TelaMenuDeOpcoesController implements Initializable {
 
     @FXML
+    public void botaoAlterarSenha() {
+        try {
+            Principal.root = FXMLLoader.load(getClass().getResource("/view/TelaAlterarSenha.fxml"));
+            Scene scene = new Scene(Principal.root);
+            Principal.palco.setScene(scene);
+        } catch (Exception e) {
+        }
+    }
+
+    @FXML
     public void botaoFavoritos() {
         try {
             Principal.root = FXMLLoader.load(getClass().getResource("/view/TelaFavoritos.fxml"));
