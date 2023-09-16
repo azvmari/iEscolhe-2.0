@@ -14,28 +14,19 @@ import javafx.scene.Scene;
 public class TelaMenuDeOpcoesController implements Initializable {
 
     @FXML
-<<<<<<< HEAD
+
     public void botaoAlterarSenha() {
         try {
             Principal.root = FXMLLoader.load(getClass().getResource("/view/TelaAlterarSenha.fxml"));
             Scene scene = new Scene(Principal.root);
             Principal.palco.setScene(scene);
         } catch (Exception e) {
-        }
-=======
-    public void botaoMinhaConta() {
 
+        }
     }
 
-    @FXML
-    public void AtualizarSenha(String senhaAtual) {
+    public void botaoMinhaConta() {
 
-        if (!senhaAtual.equals(Usuariojdbc.usuarioLogado.getSenha())) {
-            System.out.println("Senha incorreta");
-        }
-        Usuariojdbc u = new Usuariojdbc();
-        u.updateUsuario(Usuariojdbc.usuarioLogado.getIdUsuario(), senhaAtual);
->>>>>>> b63d894a64a9bbab4ab1f20c642a3e6d7f461c5a
     }
 
     @FXML

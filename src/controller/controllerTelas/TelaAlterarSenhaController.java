@@ -4,7 +4,8 @@ import model.Principal;
 import model.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
-import data.UsuarioDados;
+
+import Dao.Usuariojdbc;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -38,11 +39,30 @@ public class TelaAlterarSenhaController implements Initializable {
 
   @FXML
   public void botaoConfirmarAlteracao() {
-    if (campoSenhaAtual.equals("") || campoNovaSenha.equals("") || campoConfirmaSenha.equals("")) {
+
+    String senhaAtual = campoSenhaAtual.getText().toString().trim();
+    String senhaNova = campoNovaSenha.getText().toString().trim();
+    String confirmaSenha = campoConfirmaSenha.getText().toString().trim();
+
+    if (!senhaAtual.equals(Usuariojdbc.usuarioLogado.getSenha())) {
+      alerta.setText("Senha incorreta");
+      System.out.println("Senha incorreta");
+      return;
+    }
+
+    if (senhaAtual.equals("") || senhaNova.equals("") || campoConfirmaSenha.equals("")) {
       alerta.setText("Campos não podem ficar em branco");
       return;
     }
 
+    if (!senhaNova.equals(confirmaSenha)) {
+      alerta.setText("Senhas não correspondem");
+      return;
+    }
+
+    Usuariojdbc u = new Usuariojdbc();
+    u.updateUsuario(Usuariojdbc.usuarioLogado.getIdUsuario(), campoNovaSenha.getText());
+    alerta.setText("Senha atualizada!!");
   }
 
   @FXML
