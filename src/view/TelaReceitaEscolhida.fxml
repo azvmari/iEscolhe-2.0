@@ -4,6 +4,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -38,7 +41,7 @@
                         <Insets right="15.0" />
                      </HBox.margin>
                   </Label>
-                  <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botaoFavoritar" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+                  <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botaoFavoritar" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -54,7 +57,7 @@
             </HBox>
             <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="376.0" prefWidth="800.0">
                <content>
-                  <BorderPane minHeight="443.0" minWidth="806.0" style="-fx-background-color: #FFFFFF;">
+                  <BorderPane minHeight="443.0" minWidth="700.0" style="-fx-background-color: #FFFFFF;">
                      <center>
                         <VBox prefWidth="784.0" BorderPane.alignment="CENTER_LEFT">
                            <children>
@@ -78,7 +81,7 @@
                               </Label>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao1estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" HBox.hgrow="NEVER">
+                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao1estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css" HBox.hgrow="NEVER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -93,7 +96,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao2estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao2estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -108,7 +111,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao3estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao3estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -123,7 +126,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao4estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao4estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -138,7 +141,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao5estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;">
+                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao5estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -153,7 +156,17 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="avaliar" alignment="CENTER" mnemonicParsing="false" onAction="#botaoEnviarAvaliacao" text="Enviar avaliação">
+                                    <Button fx:id="avaliar" mnemonicParsing="false" onAction="#botaoEnviarAvaliacao" style="-fx-background-radius: 10; -fx-background-color: F8F8FF;" styleClass="botoes" stylesheets="@css/global.css" text="Enviar avaliação">
+                                       <effect>
+                                          <Lighting diffuseConstant="1.09" specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant azimuth="48.3" elevation="111.06" />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
                                        <HBox.margin>
                                           <Insets top="2.0" />
                                        </HBox.margin>
@@ -180,10 +193,20 @@
                   </BorderPane>
                </content>
             </ScrollPane>
-            <Button layoutX="437.0" layoutY="452.0" mnemonicParsing="false" onAction="#botaoTelaPrincipal" text="TELA PRINCIPAL" textFill="#ff1d05">
+            <Button mnemonicParsing="false" onAction="#botaoTelaPrincipal" prefWidth="140.0" style="-fx-background-radius: 10; -fx-background-color: F8F8FF;" styleClass="botoes" stylesheets="@css/global.css" text="TELA PRINCIPAL" textFill="RED">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
+               <effect>
+                  <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant elevation="111.06" />
+                     </light>
+                  </Lighting>
+               </effect>
                <VBox.margin>
                   <Insets top="14.0" />
                </VBox.margin>
@@ -195,7 +218,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" style="-fx-border-color: #e61a06; -fx-border-style: hidden hidden solid hidden; -fx-border-width: 8;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltarParaReceitas" style="-fx-background-color: transparent;">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltarParaReceitas" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>

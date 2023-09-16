@@ -1,7 +1,8 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\adrya\\Downloads\\postgresql-42.6.0.jar"
+        "c:\\Users\\adrya\\Downloads\\postgresql-42.6.0.jar",
+        "c:\\Users\\maria\\Downloads\\postgresql-42.6.0_1.jar"
     ],
     "sqltools.connections": [
         {

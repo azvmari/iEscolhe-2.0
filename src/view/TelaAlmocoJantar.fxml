@@ -54,12 +54,12 @@
             
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltar" prefWidth="120.0" text="VOLTAR" textFill="#ff1d05">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltar" prefWidth="120.0" styleClass="botoes" stylesheets="@css/global.css" text="VOLTAR" textFill="#ff1d05">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#botaoConcluir" prefWidth="120.0" text="CONCLUIR" textFill="#ff1d05">
+                  <Button mnemonicParsing="false" onAction="#botaoConcluir" prefWidth="120.0" styleClass="botoes" stylesheets="@css/global.css" text="CONCLUIR" textFill="#ff1d05">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>

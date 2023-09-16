@@ -6,6 +6,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -20,7 +23,7 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#botaoAcessarMenu" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;">
+            <Button maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#botaoAcessarMenu" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                <graphic>
                   <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -44,6 +47,16 @@
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant azimuth="230.0" elevation="117.66" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </Label>
                </children>
             </HBox>

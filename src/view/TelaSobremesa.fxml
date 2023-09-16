@@ -4,6 +4,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -46,6 +49,9 @@
                <font>
                   <Font size="27.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Label>
   <HBox fx:id="boxIngredientes" alignment="CENTER" prefHeight="412.0" prefWidth="906.0">               
                     <padding>
@@ -53,15 +59,35 @@
                      </padding></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltar" prefWidth="120.0" text="VOLTAR" textFill="#ff1d05">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltar" prefWidth="120.0" style="-fx-background-radius: 10; -fx-background-color: F8F8FF;" styleClass="botoes" stylesheets="@css/global.css" text="VOLTAR" textFill="RED">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
+                     <effect>
+                        <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant elevation="111.06" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#botaoConcluir" prefWidth="120.0" text="CONCLUIR" textFill="#ff1d05">
+                  <Button mnemonicParsing="false" onAction="#botaoConcluir" prefWidth="120.0" style="-fx-background-radius: 10; -fx-background-color: F8F8FF;" styleClass="botoes" stylesheets="@css/global.css" text="CONCLUIR" textFill="RED">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
+                     <effect>
+                        <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant elevation="111.06" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </Button>
                </children>
             </HBox>

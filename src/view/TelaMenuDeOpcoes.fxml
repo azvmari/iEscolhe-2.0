@@ -20,9 +20,9 @@
          <children>
             <HBox alignment="CENTER_LEFT" style="-fx-border-color: #e61a06; -fx-border-style: hidden hidden solid hidden; -fx-border-width: 8;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;" styleClass="botoes">
                      <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="botoes">
                            <image>
                               <Image url="@images/icon-retornar.png" />
                            </image>
@@ -62,7 +62,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#botaoFavoritos" style="-fx-background-color: transparent;" text=" Favoritos &gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#botaoFavoritos" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css" text=" Favoritos &gt;" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -74,11 +74,8 @@
                               </ImageView>
                            </graphic>
                            <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <padding>
                               <Insets left="115.0" />
-                           </padding>
+                           </HBox.margin>
                         </Button>
                      </children>
                      <VBox.margin>
@@ -88,9 +85,9 @@
                         <Insets top="20.0" />
                      </padding>
                   </HBox>
-                  <HBox prefHeight="100.0">
+                  <HBox>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#botaoAlterarSenha" style="-fx-background-color: transparent;" text=" Alterar senha &gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#botaoAlterarSenha" style="-fx-background-color: transparent;" styleClass="botoes" text=" Alterar senha &gt;" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -101,36 +98,33 @@
                                  </image>
                               </ImageView>
                            </graphic>
-                           <padding>
+                           <HBox.margin>
                               <Insets left="110.0" top="28.0" />
-                           </padding>
+                           </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT">
+                  <HBox prefHeight="100.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#botaoSair" style="-fx-background-color: transparent;" text=" Sair &gt;" textFill="WHITE">
+                        <Button mnemonicParsing="false" onAction="#botaoSair" style="-fx-background-color: transparent;" styleClass="botoes" text=" Sair &gt;" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@images/icon-logout.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                            <HBox.margin>
-                              <Insets />
+                              <Insets left="110.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                      <VBox.margin>
-                        <Insets />
+                        <Insets left="5.0" top="40.0" />
                      </VBox.margin>
-                     <padding>
-                        <Insets left="100.0" />
-                     </padding>
                   </HBox>
                </children>
                <VBox.margin>

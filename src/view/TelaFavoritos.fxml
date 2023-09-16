@@ -61,7 +61,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" style="-fx-border-color: #e61a06; -fx-border-style: hidden hidden solid hidden; -fx-border-width: 8;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -70,7 +70,7 @@
                         </ImageView>
                      </graphic>
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="9.0" />
                      </HBox.margin>
                   </Button>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="906.0">
@@ -83,14 +83,6 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <ImageView fitHeight="56.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/icon-favoritos.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
                      </children>
                   </HBox>
                   <HBox maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" />

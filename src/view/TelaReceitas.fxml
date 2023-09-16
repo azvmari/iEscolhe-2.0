@@ -68,7 +68,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" style="-fx-border-color: #e61a06; -fx-border-style: hidden hidden solid hidden; -fx-border-width: 8;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>

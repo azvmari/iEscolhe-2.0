@@ -52,3 +52,16 @@
   -fx-width: 30;
   -fx-height: 30;
 }
+
+.scroll-pane .scroll-bar:vertical {
+  -fx-border-color: #ff1d05;
+  -fx-border-radius: 10;
+  /* -fx-background-color: #ff1d05; */
+  -fx-border-insets: -1 -1 -1 -2;
+  /* -fx-background-size: contain; ou 'contain', dependendo do comportamento desejado */
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+  -fx-border-radius: 10;
+  /* -fx-border-color: #ff1d05; */
+}

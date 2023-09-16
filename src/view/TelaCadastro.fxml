@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -34,13 +37,20 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="campoNome" onKeyPressed="#enter" prefHeight="30.0" prefWidth="363.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  <TextField fx:id="campoNome" onKeyPressed="#enter" prefHeight="30.0" prefWidth="360.0" style="-fx-background-radius: 15;">
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <effect>
+                        <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant elevation="111.06" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </TextField>
                </children>
                <VBox.margin>
@@ -57,13 +67,20 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="campoUsuario" onKeyPressed="#enter" prefHeight="30.0" prefWidth="363.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  <TextField fx:id="campoUsuario" onKeyPressed="#enter" prefHeight="30.0" prefWidth="360.0" style="-fx-background-radius: 15;">
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <effect>
+                        <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant elevation="111.06" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </TextField>
                </children>
             </VBox>
@@ -77,31 +94,45 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <PasswordField fx:id="campoSenha" onKeyPressed="#enter" prefHeight="30.0" prefWidth="363.0">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  <PasswordField fx:id="campoSenha" onKeyPressed="#enter" prefHeight="30.0" prefWidth="360.0" style="-fx-background-radius: 15;">
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <effect>
+                        <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant elevation="111.06" />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </PasswordField>
                </children>
             </VBox>
             <Label fx:id="alerta" alignment="TOP_CENTER" textFill="#ffe99b">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onAction="#botaoFinalizarCadastro" prefHeight="36.0" prefWidth="169.0" text="CADASTRAR" textFill="RED">
+            <Button mnemonicParsing="false" onAction="#botaoFinalizarCadastro" prefWidth="168.0" style="-fx-background-radius: 10; -fx-background-color: F8F8FF;" styleClass="botoes" stylesheets="@css/global.css" text="CADASTRAR" textFill="RED">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
+               <effect>
+                  <Lighting specularConstant="0.0" specularExponent="20.37" surfaceScale="3.51">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant elevation="111.06" />
+                     </light>
+                  </Lighting>
+               </effect>
             </Button>
          </children>
       </VBox>
@@ -116,7 +147,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" style="-fx-border-color: #e61a06; -fx-border-style: hidden hidden solid hidden; -fx-border-width: 8;">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;">
+                        <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                            <graphic>
                               <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

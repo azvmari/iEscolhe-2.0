@@ -18,3 +18,15 @@ BorderPane {
     -fx-background-color: #ff1d05;
     -fx-padding: 0 10 0 10;
 }
+
+.botoes {
+    -fx-cursor: hand;
+}
+
+.botoes:hover {
+    -fx-opacity: 0.85;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: red;
+}

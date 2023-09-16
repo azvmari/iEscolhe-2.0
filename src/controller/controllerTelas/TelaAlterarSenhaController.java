@@ -20,18 +20,22 @@ import javafx.scene.input.KeyEvent;
 public class TelaAlterarSenhaController implements Initializable {
 
   @FXML
-  private Label alertaSenhaIncorreta, alertaSenhaForaDoPadrao, alertaSenhasNaoCorrespondem, alerta;
+  private Label alertaSenhaAtual, alertaNovaSenha, alertaConfirmaSenha, alerta;
   @FXML
   private TextField campoSenhaAtual, campoNovaSenha, campoConfirmaSenha;
 
   @FXML
   public void enter(KeyEvent event) {
-    // if (event.getCode().equals(KeyCode.ENTER))
-    // botaoFinalizarCadastro();
+    if (event.getCode().equals(KeyCode.ENTER))
+      botaoConfirmarAlteracao();
   }
 
   @FXML
   public void botaoCancelarAlteracao() {
+    alertaSenhaAtual.setText("");
+    alertaNovaSenha.setText("");
+    alertaConfirmaSenha.setText("");
+    alerta.setText("");
     campoSenhaAtual.clear();
     campoNovaSenha.clear();
     campoConfirmaSenha.clear();
@@ -40,28 +44,39 @@ public class TelaAlterarSenhaController implements Initializable {
   @FXML
   public void botaoConfirmarAlteracao() {
 
+    alertaSenhaAtual.setText("");
+    alertaNovaSenha.setText("");
+    alertaConfirmaSenha.setText("");
+    alerta.setText("");
+
     String senhaAtual = campoSenhaAtual.getText().toString().trim();
     String senhaNova = campoNovaSenha.getText().toString().trim();
     String confirmaSenha = campoConfirmaSenha.getText().toString().trim();
 
-    if (senhaAtual.equals("") || senhaNova.equals("") || campoConfirmaSenha.equals("")) {
+    if (senhaAtual.equals("") || senhaNova.equals("") || confirmaSenha.equals("")) {
       alerta.setText("Campos não podem ficar em branco");
       return;
     }
+
     if (!senhaAtual.equals(Usuariojdbc.usuarioLogado.getSenha())) {
-      alerta.setText("Senha incorreta");
-      System.out.println("Senha incorreta");
+      alertaSenhaAtual.setText("Senha incorreta");
+      // System.out.println("Senha incorreta");
+      return;
+    }
+
+    if (senhaNova.length() < 5) {
+      alertaNovaSenha.setText("A senha precisa ter, no mínimo, 6 caracteres");
       return;
     }
 
     if (!senhaNova.equals(confirmaSenha)) {
-      alerta.setText("Senhas não correspondem");
+      alertaConfirmaSenha.setText("Senhas não correspondem");
       return;
     }
 
     Usuariojdbc u = new Usuariojdbc();
     u.updateUsuario(Usuariojdbc.usuarioLogado.getIdUsuario(), campoNovaSenha.getText());
-    alerta.setText("Senha atualizada!!");
+    alerta.setText("Senha atualizada com sucesso!");
   }
 
   @FXML
