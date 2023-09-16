@@ -44,14 +44,13 @@ public class TelaAlterarSenhaController implements Initializable {
     String senhaNova = campoNovaSenha.getText().toString().trim();
     String confirmaSenha = campoConfirmaSenha.getText().toString().trim();
 
+    if (senhaAtual.equals("") || senhaNova.equals("") || campoConfirmaSenha.equals("")) {
+      alerta.setText("Campos não podem ficar em branco");
+      return;
+    }
     if (!senhaAtual.equals(Usuariojdbc.usuarioLogado.getSenha())) {
       alerta.setText("Senha incorreta");
       System.out.println("Senha incorreta");
-      return;
-    }
-
-    if (senhaAtual.equals("") || senhaNova.equals("") || campoConfirmaSenha.equals("")) {
-      alerta.setText("Campos não podem ficar em branco");
       return;
     }
 
