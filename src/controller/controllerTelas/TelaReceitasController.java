@@ -3,8 +3,10 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Dao.ReceitaDTO;
 import controller.ReceitasSelecionadas;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,10 +41,15 @@ public class TelaReceitasController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preencherLista();
+        try {
+            preencherLista();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    private void preencherLista() {
+    private void preencherLista() throws SQLException {
         listaReceitas.getChildren().clear();
 
         if (ReceitasSelecionadas.receitasPossiveis().size() == 0) {
@@ -50,7 +57,7 @@ public class TelaReceitasController implements Initializable {
             scroll.setVbarPolicy(ScrollBarPolicy.NEVER);
         }
 
-        for (Receita receita : ReceitasSelecionadas.receitasPossiveis()) {
+        for (ReceitaDTO receita : ReceitasSelecionadas.receitasPossiveis()) {
             HBox botaoReceita = new HBox();
             HBox hbox = new HBox();
             VBox vbox = new VBox();
@@ -59,7 +66,7 @@ public class TelaReceitasController implements Initializable {
             Label ingredientes = new Label();
 
             nomeReceita.setText(receita.getNome() + " ");
-            avaliacao.setText(receita.mediaAvaliacao() + " ★"); //mudei de getAvaliacao pra mediaAvaliacao
+            avaliacao.setText(receita.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
 
             String ingredientesTexto = "INGREDIENTES:\n";
             for (String ingrediente : receita.getIngredientes()) {

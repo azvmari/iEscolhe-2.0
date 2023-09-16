@@ -4,7 +4,8 @@ import model.Principal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import data.UsuarioDados;
+
+import Dao.Usuariojdbc;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -129,7 +130,7 @@ public class TelaMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        apresentacao.setText("Olá, " + UsuarioDados.usuarioLogado.getNome() + "! Qual refeição você deseja fazer?");
+        apresentacao.setText("Olá, " + Usuariojdbc.usuarioLogado.getNome() + "! Qual refeição você deseja fazer?");
     }
 
 }

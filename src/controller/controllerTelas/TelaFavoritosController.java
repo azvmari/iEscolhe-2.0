@@ -3,10 +3,13 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-import data.FavoritoDados;
-import data.ReceitaDados;
-import data.UsuarioDados;
+
+import Dao.Favoritojdbc;
+import Dao.ReceitaDTO;
+import Dao.Receitajdbc;
+import Dao.Usuariojdbc;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,12 +43,19 @@ public class TelaFavoritosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preencherLista();
+        try {
+            preencherLista();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
-    private void preencherLista() {
-        ReceitaDados rd = new ReceitaDados();
-        FavoritoDados fd = new FavoritoDados();
+    private void preencherLista() throws SQLException {
+        Receitajdbc rd = new Receitajdbc();
+        // ReceitaDados rd = new ReceitaDados();
+        Favoritojdbc fd = new Favoritojdbc();
+        // FavoritoDados fd = new FavoritoDados();
         listaReceitas.getChildren().clear();
 
         if (rd.listarReceitas().size() == 0) {
@@ -53,8 +63,8 @@ public class TelaFavoritosController implements Initializable {
             scroll.setVbarPolicy(ScrollBarPolicy.NEVER);
         }
 
-        for (Receita receita : rd.listarReceitas()) {
-            if (fd.listarReceitasFavoritas(UsuarioDados.usuarioLogado.getUsuario())
+        for (ReceitaDTO receita : rd.listarReceitas()) {
+            if (fd.listarReceitasFavoritas(Usuariojdbc.usuarioLogado.getIdUsuario())
                     .contains(receita.getIdentificador())) {
                 HBox botaoReceita = new HBox();
                 HBox hbox = new HBox();
@@ -64,7 +74,7 @@ public class TelaFavoritosController implements Initializable {
                 Label ingredientes = new Label();
 
                 nomeReceita.setText(receita.getNome() + " ");
-                avaliacao.setText(receita.mediaAvaliacao() + " ★");  //mudei de getAvaliacao pra mediaAvaliacao
+                avaliacao.setText(receita.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
 
                 String ingredientesTexto = "Ingredientes:\n";
                 for (String ingrediente : receita.getIngredientes()) {

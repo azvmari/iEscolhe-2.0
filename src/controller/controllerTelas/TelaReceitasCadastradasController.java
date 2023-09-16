@@ -3,9 +3,11 @@ package controller.controllerTelas;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Dao.ReceitaDTO;
 import controller.ReceitasSelecionadas;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,13 +74,18 @@ public class TelaReceitasCadastradasController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    preencherLista();
+    try {
+      preencherLista();
+    } catch (SQLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
-  private void preencherLista() {
+  private void preencherLista() throws SQLException {
     listaReceitas.getChildren().clear();
 
-    for (Receita receita : ReceitasSelecionadas.receitasPossiveis()) {
+    for (ReceitaDTO receita : ReceitasSelecionadas.receitasPossiveis()) {
       HBox botaoReceita = new HBox();
       HBox hbox = new HBox();
       VBox vbox = new VBox();

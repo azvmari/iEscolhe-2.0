@@ -1,0 +1,18 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\adrya\\Downloads\\postgresql-42.6.0.jar"
+    ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "connection_adry",
+            "database": "IEscolhe",
+            "username": "postgres"
+        }
+    ]
+}

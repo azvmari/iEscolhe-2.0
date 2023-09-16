@@ -5,12 +5,14 @@ import model.Favorito;
 import model.Principal;
 import model.Receita;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Dao.Avaliacaojdbc;
+import Dao.Favoritojdbc;
+import Dao.ReceitaDTO;
+import Dao.Usuariojdbc;
 import controller.ControleAvaliacao;
-import data.AvaliacaoDados;
-import data.FavoritoDados;
-import data.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,7 +25,7 @@ import javafx.scene.image.ImageView;
 
 public class TelaReceitaEscolhidaController implements Initializable {
 
-    public static Receita receitaEscolhida = null;
+    public static ReceitaDTO receitaEscolhida = null;
 
     Image imagemEstrelaVazia = new Image(getClass().getResourceAsStream("/view/images/icon-estrela-vazia.png"));
     Image imagemEstrelaPreenchida = new Image(getClass().getResourceAsStream("/view/images/icon-estrela.png"));
@@ -70,16 +72,18 @@ public class TelaReceitaEscolhidaController implements Initializable {
 
     @FXML
     public void botaoFavoritar() {
-        FavoritoDados fd = new FavoritoDados();
+        // FavoritoDados fd = new FavoritoDados();
+
+        Favoritojdbc fd = new Favoritojdbc();
 
         if (favoritado) {
             favoritar.setImage(imagemCoracaoVazio);
             mensagemFavoritos.setText("");
-            fd.removerFavorito(UsuarioDados.usuarioLogado.getUsuario(), receitaEscolhida.getIdentificador());
+            fd.removerFavorito(Usuariojdbc.usuarioLogado.getIdUsuario(), receitaEscolhida.getIdentificador());
             System.out.println("removido");
         } else {
             favoritar.setImage(imagemCoracaoPreenchido);
-            fd.cadastrarFavorito(UsuarioDados.usuarioLogado.getUsuario(), receitaEscolhida.getIdentificador());
+            fd.cadastrarFavorito(Usuariojdbc.usuarioLogado.getIdUsuario(), receitaEscolhida.getIdentificador());
             mensagemFavoritos.setText("Receita adicionada às favoritas!");
         }
         favoritado = !favoritado;
@@ -153,19 +157,25 @@ public class TelaReceitaEscolhidaController implements Initializable {
     public void botaoEnviarAvaliacao() {
         // fazer coisa aqui!
         ControleAvaliacao ca = new ControleAvaliacao();
-        ca.cadastrarAvaliacao(UsuarioDados.usuarioLogado.getUsuario(), nota, receitaEscolhida.getIdentificador());
+        ca.cadastrarAvaliacao(Usuariojdbc.usuarioLogado.getIdUsuario(), nota, receitaEscolhida.getIdentificador());
         avaliacaoEnviada.setText("Receita avaliada!");
         avaliar.setVisible(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preencherReceita();
-        verificarFavoritado();
-        verificarAvaliacao();
+        try {
+            preencherReceita();
+            verificarFavoritado();
+            verificarAvaliacao();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 
-    private void preencherReceita() {
+    private void preencherReceita() throws SQLException {
         if (receitaEscolhida != null) {
             nomeReceita.setText("→ " + receitaEscolhida.getNome() + ":");
             avaliacao.setText(receitaEscolhida.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
@@ -177,16 +187,16 @@ public class TelaReceitaEscolhidaController implements Initializable {
                 modoDePreparoTexto += "\n• " + ingrediente;
             }
             modoDePreparoTexto += "\n\nMODO DE PREPARO:\n";
-            modoDePreparoTexto += receitaEscolhida.getModoPreparo() + "\n\n";
+            modoDePreparoTexto += receitaEscolhida.descricao + "\n\n";
             modoDePreparo.setText(modoDePreparoTexto);
             fonte.setText("Fonte: " + receitaEscolhida.getFonte());
         }
     }
 
     private void verificarFavoritado() {
-        FavoritoDados fd = new FavoritoDados();
+        Favoritojdbc fd = new Favoritojdbc();
         for (Favorito f : fd.listarFavoritos()) {
-            if (f.getUsuario().equals(UsuarioDados.usuarioLogado.getUsuario())
+            if (f.getIdUsuario() == Usuariojdbc.usuarioLogado.getIdUsuario()
                     && f.getIdReceita() == receitaEscolhida.getIdentificador()) {
                 favoritado = true;
                 favoritar.setImage(imagemCoracaoPreenchido);
@@ -196,9 +206,10 @@ public class TelaReceitaEscolhidaController implements Initializable {
     }
 
     private void verificarAvaliacao() {
-        AvaliacaoDados ad = new AvaliacaoDados();
+        // AvaliacaoDados ad = new AvaliacaoDados();
+        Avaliacaojdbc ad = new Avaliacaojdbc();
         for (Avaliacao a : ad.listarAvaliacoes()) {
-            if (a.getUsuario().equals(UsuarioDados.usuarioLogado.getUsuario())
+            if (a.getIdUsuario() == Usuariojdbc.usuarioLogado.getIdUsuario()
                     && a.getIdReceita() == receitaEscolhida.getIdentificador()) {
                 avaliar.setVisible(false);
                 avaliacaoEnviada.setText("Receita avaliada!");

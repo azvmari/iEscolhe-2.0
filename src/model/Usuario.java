@@ -2,7 +2,8 @@ package model;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
+    private int idUsuario;
     private String nome;
     private String senha;
     private String usuario;
@@ -11,6 +12,19 @@ public class Usuario implements Serializable{
         this.nome = nome;
         this.usuario = usuario;
         this.senha = senha;
+
+    }
+
+    public Usuario(int idUsuario, String nome, String usuario, String senha) {
+        this.idUsuario = idUsuario;
+        this.nome = nome;
+        this.usuario = usuario;
+        this.senha = senha;
+
+    }
+
+    public Usuario() {
+
     }
 
     public String getNome() {
@@ -39,6 +53,14 @@ public class Usuario implements Serializable{
 
     public String toString() {
         return "Nome: " + nome + "\n Usuario: " + usuario;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
 }

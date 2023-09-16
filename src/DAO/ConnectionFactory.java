@@ -1,3 +1,5 @@
+package Dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,6 +17,7 @@ public class ConnectionFactory {
             return conexao;
         } catch (SQLException e) {
 
+            // System.out.println("erro aqui");
             throw new RuntimeException(e);
 
         }

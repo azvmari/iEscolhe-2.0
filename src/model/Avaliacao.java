@@ -2,35 +2,38 @@ package model;
 
 import java.io.Serializable;
 
-public class Avaliacao implements Serializable{
-    
-    //Atributos
-    private String usuario;
+public class Avaliacao implements Serializable {
+
+    // Atributos
+    private int idusuario;
     private int avaliacao;
     private int idReceita;
 
-    //Construtor
-    public Avaliacao(String usuario, int avaliacao, int idReceita){
-        this.usuario = usuario;
+    public Avaliacao() {
+
+    }
+
+    // Construtor
+    public Avaliacao(int idusuario, int avaliacao, int idReceita) {
+        this.idusuario = idusuario;
         this.avaliacao = avaliacao;
         this.idReceita = idReceita;
     }
 
-    //Metodos
+    // Metodos
 
-    public void adicionarAvaliacao(int avaliacao){
+    public void adicionarAvaliacao(int avaliacao) {
         this.avaliacao += avaliacao;
     }
 
+    // Getter & Setter
 
-    //Getter & Setter
-
-    public String getUsuario() {
-        return usuario;
+    public int getIdUsuario() {
+        return idusuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setIdUsuario(int Idusuario) {
+        this.idusuario = Idusuario;
     }
 
     public int getAvaliacao() {
