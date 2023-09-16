@@ -26,11 +26,6 @@ public class TelaMenuDeOpcoesController implements Initializable {
     }
 
     @FXML
-    public void AtualizarSenha(String senhaAtual) {
-
-    }
-
-    @FXML
     public void botaoFavoritos() {
         try {
             Principal.root = FXMLLoader.load(getClass().getResource("/view/TelaFavoritos.fxml"));
