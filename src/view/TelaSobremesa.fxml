@@ -73,6 +73,9 @@
                            </light>
                         </Lighting>
                      </effect>
+                     <HBox.margin>
+                        <Insets bottom="40.0" />
+                     </HBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#botaoConcluir" prefWidth="120.0" style="-fx-background-radius: 10; -fx-background-color: F8F8FF;" styleClass="botoes" stylesheets="@css/global.css" text="CONCLUIR" textFill="RED">
                      <font>
@@ -88,6 +91,9 @@
                            </light>
                         </Lighting>
                      </effect>
+                     <HBox.margin>
+                        <Insets bottom="40.0" />
+                     </HBox.margin>
                   </Button>
                </children>
             </HBox>

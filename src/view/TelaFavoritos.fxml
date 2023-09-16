@@ -17,10 +17,10 @@
          <children>
             <Label fx:id="mensagemFavoritos" textFill="WHITE">
                <font>
-                  <Font size="22.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" top="5.0" />
+                  <Insets bottom="8.0" left="4.0" top="10.0" />
                </VBox.margin>
             </Label>
             <ScrollPane fx:id="scroll" hbarPolicy="NEVER" prefHeight="447.0" prefWidth="806.0" style="-fx-background-color: #ff1d05; -fx-border-color: #ff1d05;">
@@ -39,7 +39,7 @@
                                                 <Label fx:id="avaliacao" styleClass="avaliacao" text="4,5★" />
                                              </children>
                                           </HBox>
-                                          <Label styleClass="ingredientes" text="Ingredientes" />
+                                          <Label styleClass="ingredientes" text="INGREDIENTES:" />
                                        </children>
                                     </VBox>
                                  </graphic>

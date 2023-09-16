@@ -16,6 +16,7 @@ import controller.ControleAvaliacao;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,7 +44,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
     private ScrollPane scrollPane;
 
     @FXML
-    private Button avaliar;
+    private Button avaliar, b1estrela, b2estrela, b3estrela, b4estrela, b5estrela;
 
     private boolean favoritado = false;
 
@@ -160,6 +161,11 @@ public class TelaReceitaEscolhidaController implements Initializable {
         ca.cadastrarAvaliacao(Usuariojdbc.usuarioLogado.getIdUsuario(), nota, receitaEscolhida.getIdentificador());
         avaliacaoEnviada.setText("Receita avaliada!");
         avaliar.setVisible(false);
+        b1estrela.setDisable(true);
+        b2estrela.setDisable(true);
+        b3estrela.setDisable(true);
+        b4estrela.setDisable(true);
+        b5estrela.setDisable(true);
     }
 
     @Override
@@ -169,7 +175,6 @@ public class TelaReceitaEscolhidaController implements Initializable {
             verificarFavoritado();
             verificarAvaliacao();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -178,8 +183,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
     private void preencherReceita() throws SQLException {
         if (receitaEscolhida != null) {
             nomeReceita.setText("→ " + receitaEscolhida.getNome() + ":");
-            avaliacao.setText(receitaEscolhida.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
-                                                                         // //adicionado por: thales
+            avaliacao.setText(receitaEscolhida.mediaAvaliacao() + " ★");
 
             String modoDePreparoTexto = "";
             modoDePreparoTexto += "INGREDIENTES:";

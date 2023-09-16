@@ -44,7 +44,6 @@ public class TelaReceitasController implements Initializable {
         try {
             preencherLista();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -55,6 +54,15 @@ public class TelaReceitasController implements Initializable {
         if (ReceitasSelecionadas.receitasPossiveis().size() == 0) {
             mensagemReceita.setText(" Não há receitas disponíveis para esses ingredientes :(");
             scroll.setVbarPolicy(ScrollBarPolicy.NEVER);
+        }
+
+        else if (ReceitasSelecionadas.receitasPossiveis().size() == 1) {
+            mensagemReceita.setText(" Você pode fazer 1 receita:");
+        }
+
+        else {
+            mensagemReceita
+                    .setText(" Você pode fazer " + ReceitasSelecionadas.receitasPossiveis().size() + " receitas:");
         }
 
         for (ReceitaDTO receita : ReceitasSelecionadas.receitasPossiveis()) {
