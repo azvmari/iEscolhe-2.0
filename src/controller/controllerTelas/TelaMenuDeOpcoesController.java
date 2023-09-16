@@ -25,7 +25,8 @@ public class TelaMenuDeOpcoesController implements Initializable {
         }
     }
 
-    public void botaoMinhaConta() {
+    @FXML
+    public void AtualizarSenha(String senhaAtual) {
 
     }
 
