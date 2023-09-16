@@ -46,7 +46,6 @@ public class TelaFavoritosController implements Initializable {
         try {
             preencherLista();
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -58,9 +57,12 @@ public class TelaFavoritosController implements Initializable {
         // FavoritoDados fd = new FavoritoDados();
         listaReceitas.getChildren().clear();
 
-        if (rd.listarReceitas().size() == 0) {
-            mensagemFavoritos.setText("Você não favoritou nenhuma receita!");
+        if (fd.listarReceitasFavoritas(Usuariojdbc.usuarioLogado.getIdUsuario()).size() == 0) {
+            mensagemFavoritos.setText("Você ainda não favoritou nenhuma receita!");
             scroll.setVbarPolicy(ScrollBarPolicy.NEVER);
+        } else {
+            mensagemFavoritos.setText("→ Ao total, você favoritou "
+                    + fd.listarReceitasFavoritas(Usuariojdbc.usuarioLogado.getIdUsuario()).size() + " receitas:");
         }
 
         for (ReceitaDTO receita : rd.listarReceitas()) {
@@ -74,9 +76,9 @@ public class TelaFavoritosController implements Initializable {
                 Label ingredientes = new Label();
 
                 nomeReceita.setText(receita.getNome() + " ");
-                avaliacao.setText(receita.mediaAvaliacao() + " ★"); // mudei de getAvaliacao pra mediaAvaliacao
+                avaliacao.setText(receita.mediaAvaliacao() + " ★");
 
-                String ingredientesTexto = "Ingredientes:\n";
+                String ingredientesTexto = "INGREDIENTES:\n";
                 for (String ingrediente : receita.getIngredientes()) {
                     ingredientesTexto += "• " + ingrediente + "\n";
                 }

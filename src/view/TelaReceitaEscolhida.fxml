@@ -81,7 +81,7 @@
                               </Label>
                               <HBox prefWidth="200.0">
                                  <children>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao1estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css" HBox.hgrow="NEVER">
+                                    <Button fx:id="b1estrela" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao1estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css" HBox.hgrow="NEVER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -96,7 +96,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao2estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
+                                    <Button fx:id="b2estrela" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao2estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -111,7 +111,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao3estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
+                                    <Button fx:id="b3estrela" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao3estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -126,7 +126,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao4estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
+                                    <Button fx:id="b4estrela" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao4estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -141,7 +141,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao5estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
+                                    <Button fx:id="b5estrela" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#botao5estrela" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                                        <font>
                                           <Font size="20.0" />
                                        </font>

@@ -87,6 +87,12 @@
                      </effect>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="40.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>
