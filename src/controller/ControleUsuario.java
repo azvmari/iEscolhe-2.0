@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import Dao.InterfaceUsuarioDao;
 import Dao.Usuariojdbc;
-import data.*;
 import model.*;
 import model.Interfaces.*;
 
@@ -27,4 +26,5 @@ public class ControleUsuario {
 
         return ud.listarUsuarios();
     }
+
 }

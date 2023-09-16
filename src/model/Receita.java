@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import Dao.IngredienteReceitajdbc;
 import Dao.Ingredientejbdc;
 import controller.ControleAvaliacao;
-import data.IngredienteReceitaDados;
-import data.IngredientesDados;
-import data.ReceitaDados;
 
 public class Receita implements Serializable {
     // Atributos
@@ -26,7 +23,7 @@ public class Receita implements Serializable {
 
     public Receita(String nome, int modoPreparo) {
         this.nome = nome;
-        this.identificador = ReceitaDados.contador;
+        this.identificador = 1;
         this.modoPreparo = modoPreparo;
         this.fonte = "Tudo Gostoso";
         this.favorito = false;

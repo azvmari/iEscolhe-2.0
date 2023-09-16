@@ -309,7 +309,7 @@ public class ControleCadastro {
          */
 
         ControleAvaliacao ca = new ControleAvaliacao();
-        int min = 1;
+        int min = 3;
         int max = 5;
         int notaAleatoria = 0;
 

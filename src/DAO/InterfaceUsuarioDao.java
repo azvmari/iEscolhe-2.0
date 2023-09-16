@@ -18,7 +18,8 @@ public interface InterfaceUsuarioDao {
 
     public ArrayList<Usuario> listarUsuarios() throws SQLException;
 
-    // public Usuario readUsuario(long id);
-    // public void updateUsuario(Usuario usuario);
-    // public void deleteUsuario(Usuario usuario);
+    public void updateUsuario(int idUsuario, String senhaNova);
 }
+
+// public Usuario readUsuario(long id);
+// public void deleteUsuario(Usuario usuario);

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import Dao.Ingredientejbdc;
 import Dao.InterfaceIngredienteDAO;
-import data.IngredientesDados;
+
 import model.Ingrediente;
 import model.Interfaces.*;
 

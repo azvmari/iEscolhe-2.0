@@ -9,7 +9,7 @@ public class Cadastro {
         // c.cadastrarReceita();
         // c.cadastrarIngrediente();
         // c.cadastrarIngredienteReceita();
-        // c.cadastrarAvaliacao();
+        c.cadastrarAvaliacao();
 
     }
 

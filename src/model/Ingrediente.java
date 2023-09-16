@@ -1,7 +1,6 @@
 package model;
 
 import java.io.Serializable;
-import data.IngredientesDados;
 
 public class Ingrediente implements Serializable {
     private String nome;

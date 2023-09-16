@@ -2,28 +2,23 @@ package model;
 
 import java.io.Serializable;
 
-public class Favorito implements Serializable{
-    //Atributos
-    private String usuario;
+public class Favorito implements Serializable {
+    // Atributos
+    private int idUsuario;
     private int idReceita;
 
-    //Construtor
-    public Favorito(String usuario, int idReceita){
-        this.usuario = usuario;
+    // Construtor
+    public Favorito(int idUsuario, int idReceita) {
+        this.idUsuario = idUsuario;
         this.idReceita = idReceita;
     }
 
-    //Metodos
+    public Favorito() {
 
-    //Getter & Setter  
-
-    public String getUsuario() {
-        return usuario;
     }
+    // Metodos
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
+    // Getter & Setter
 
     public int getIdReceita() {
         return idReceita;
@@ -33,10 +28,16 @@ public class Favorito implements Serializable{
         this.idReceita = idReceita;
     }
 
-    public String imprimir(){
-        return "Usuario: " + getUsuario() + "\n Id receita:" + getIdReceita();
+    public String imprimir() {
+        return "Id Usuario: " + getIdUsuario() + "\n Id receita:" + getIdReceita();
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
 }
-
-

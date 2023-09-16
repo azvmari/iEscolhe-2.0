@@ -6,13 +6,27 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Dao.Usuariojdbc;
-import data.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 
 public class TelaMenuDeOpcoesController implements Initializable {
+
+    @FXML
+    public void botaoMinhaConta() {
+
+    }
+
+    @FXML
+    public void AtualizarSenha(String senhaAtual) {
+
+        if (!senhaAtual.equals(Usuariojdbc.usuarioLogado.getSenha())) {
+            System.out.println("Senha incorreta");
+        }
+        Usuariojdbc u = new Usuariojdbc();
+        u.updateUsuario(Usuariojdbc.usuarioLogado.getIdUsuario(), senhaAtual);
+    }
 
     @FXML
     public void botaoFavoritos() {

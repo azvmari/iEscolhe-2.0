@@ -2,16 +2,18 @@ package controller;
 
 import java.util.ArrayList;
 
-import data.FavoritoDados;
+import Dao.Favoritojdbc;
+import Dao.InterfaceFavorito;
 import model.Favorito;
-import model.Interfaces.InterfaceFavorito;
 
 public class ControleFavorito {
 
-    InterfaceFavorito fd = new FavoritoDados();
+    // InterfaceFavorito fd = new FavoritoDados();
 
-    public void cadastrarFavorito(String usuario, int idReceita) {
-        fd.cadastrarFavorito(usuario, idReceita);
+    InterfaceFavorito fd = new Favoritojdbc();
+
+    public void cadastrarFavorito(int idUsuario, int idReceita) {
+        fd.cadastrarFavorito(idUsuario, idReceita);
     }
 
     public ArrayList<Favorito> listarFavoritos() {

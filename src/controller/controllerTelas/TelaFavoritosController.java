@@ -6,11 +6,10 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Dao.Favoritojdbc;
 import Dao.ReceitaDTO;
 import Dao.Receitajdbc;
-import data.FavoritoDados;
-import data.ReceitaDados;
-import data.UsuarioDados;
+import Dao.Usuariojdbc;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,7 +54,8 @@ public class TelaFavoritosController implements Initializable {
     private void preencherLista() throws SQLException {
         Receitajdbc rd = new Receitajdbc();
         // ReceitaDados rd = new ReceitaDados();
-        FavoritoDados fd = new FavoritoDados();
+        Favoritojdbc fd = new Favoritojdbc();
+        // FavoritoDados fd = new FavoritoDados();
         listaReceitas.getChildren().clear();
 
         if (rd.listarReceitas().size() == 0) {
@@ -64,7 +64,7 @@ public class TelaFavoritosController implements Initializable {
         }
 
         for (ReceitaDTO receita : rd.listarReceitas()) {
-            if (fd.listarReceitasFavoritas(UsuarioDados.usuarioLogado.getUsuario())
+            if (fd.listarReceitasFavoritas(Usuariojdbc.usuarioLogado.getIdUsuario())
                     .contains(receita.getIdentificador())) {
                 HBox botaoReceita = new HBox();
                 HBox hbox = new HBox();

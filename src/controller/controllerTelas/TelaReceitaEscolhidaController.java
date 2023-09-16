@@ -9,12 +9,10 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Dao.Avaliacaojdbc;
+import Dao.Favoritojdbc;
 import Dao.ReceitaDTO;
 import Dao.Usuariojdbc;
 import controller.ControleAvaliacao;
-import data.AvaliacaoDados;
-import data.FavoritoDados;
-import data.UsuarioDados;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -74,16 +72,18 @@ public class TelaReceitaEscolhidaController implements Initializable {
 
     @FXML
     public void botaoFavoritar() {
-        FavoritoDados fd = new FavoritoDados();
+        // FavoritoDados fd = new FavoritoDados();
+
+        Favoritojdbc fd = new Favoritojdbc();
 
         if (favoritado) {
             favoritar.setImage(imagemCoracaoVazio);
             mensagemFavoritos.setText("");
-            fd.removerFavorito(UsuarioDados.usuarioLogado.getUsuario(), receitaEscolhida.getIdentificador());
+            fd.removerFavorito(Usuariojdbc.usuarioLogado.getIdUsuario(), receitaEscolhida.getIdentificador());
             System.out.println("removido");
         } else {
             favoritar.setImage(imagemCoracaoPreenchido);
-            fd.cadastrarFavorito(UsuarioDados.usuarioLogado.getUsuario(), receitaEscolhida.getIdentificador());
+            fd.cadastrarFavorito(Usuariojdbc.usuarioLogado.getIdUsuario(), receitaEscolhida.getIdentificador());
             mensagemFavoritos.setText("Receita adicionada às favoritas!");
         }
         favoritado = !favoritado;
@@ -166,7 +166,7 @@ public class TelaReceitaEscolhidaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             preencherReceita();
-            // verificarFavoritado();
+            verificarFavoritado();
             verificarAvaliacao();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -194,9 +194,9 @@ public class TelaReceitaEscolhidaController implements Initializable {
     }
 
     private void verificarFavoritado() {
-        FavoritoDados fd = new FavoritoDados();
+        Favoritojdbc fd = new Favoritojdbc();
         for (Favorito f : fd.listarFavoritos()) {
-            if (f.getUsuario().equals(UsuarioDados.usuarioLogado.getUsuario())
+            if (f.getIdUsuario() == Usuariojdbc.usuarioLogado.getIdUsuario()
                     && f.getIdReceita() == receitaEscolhida.getIdentificador()) {
                 favoritado = true;
                 favoritar.setImage(imagemCoracaoPreenchido);

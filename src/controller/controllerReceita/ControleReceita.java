@@ -6,7 +6,6 @@ import Dao.InterfaceReceita;
 import Dao.ReceitaDTO;
 import Dao.Receitajdbc;
 import model.*;
-import data.*;
 
 public class ControleReceita {
 

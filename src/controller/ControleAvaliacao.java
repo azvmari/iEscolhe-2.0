@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Dao.Avaliacaojdbc;
-import data.AvaliacaoDados;
 import model.Avaliacao;
 import model.Interfaces.InterfaceAvaliacao;
 

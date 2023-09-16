@@ -3,7 +3,6 @@ package controller;
 import java.util.ArrayList;
 
 import Dao.IngredienteReceitajdbc;
-import data.IngredienteReceitaDados;
 import model.IngredienteReceita;
 import model.Interfaces.InterfaceIngredienteReceita;
 
