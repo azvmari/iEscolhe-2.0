@@ -76,7 +76,7 @@ public class TelaFavoritosController implements Initializable {
                 Label ingredientes = new Label();
 
                 nomeReceita.setText(receita.getNome() + " ");
-                avaliacao.setText(receita.mediaAvaliacao() + " ★");
+                avaliacao.setText(receita.mediaAvaliacao() + "★ ");
 
                 String ingredientesTexto = "INGREDIENTES:\n";
                 for (String ingrediente : receita.getIngredientes()) {

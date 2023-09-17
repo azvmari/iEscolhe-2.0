@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import controller.ReceitasSelecionadas;
@@ -18,8 +19,10 @@ import controller.controllerIngredientes.*;;
 public class TelaCafeDaManhaController implements Initializable {
 
     ControleIngredientes ci = new ControleIngredientes();
-
     ArrayList<Ingrediente> listaIngredientes = ci.listarIngredientes();
+
+    @FXML
+    private ScrollPane scroll;
 
     @FXML
     private HBox boxIngredientes;
@@ -62,10 +65,11 @@ public class TelaCafeDaManhaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         VBox vb1 = new VBox();
         VBox vb2 = new VBox();
         VBox vb3 = new VBox();
-        String style = "-fx-spacing: 30; -fx-pref-width: 200; -fx-alignment: center;";
+        String style = "-fx-spacing: 30; -fx-pref-width: 270; -fx-alignment: center;";
         vb1.setStyle(style);
         vb2.setStyle(style);
         vb3.setStyle(style);
@@ -75,7 +79,7 @@ public class TelaCafeDaManhaController implements Initializable {
 
             if (ing.getCategoria().contains("cafe-da-manha")) {
                 CheckBox cb = new CheckBox();
-                cb.setStyle("-fx-text-fill: #fff; -fx-font-size: 24; -fx-pref-width: 200;");
+                cb.setStyle("-fx-text-fill: #fff; -fx-font-size: 24; -fx-pref-width: 270;");
                 cb.setText(ing.getNome());
                 cb.setId(ing.getIdentificador() + "");
 

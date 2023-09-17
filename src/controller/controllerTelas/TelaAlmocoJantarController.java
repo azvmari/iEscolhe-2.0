@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import controller.ReceitasSelecionadas;
@@ -20,6 +22,9 @@ public class TelaAlmocoJantarController implements Initializable {
 
     ControleIngredientes ci = new ControleIngredientes();
     ArrayList<Ingrediente> listaIngredientes = ci.listarIngredientes();
+
+    @FXML
+    private ScrollPane scroll;
 
     @FXML
     private HBox boxIngredientes;
@@ -68,6 +73,8 @@ public class TelaAlmocoJantarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         ArrayList<Ingrediente> listaIngredientes = new ArrayList<>();
 
         try {
@@ -78,10 +85,13 @@ public class TelaAlmocoJantarController implements Initializable {
         VBox vb1 = new VBox();
         VBox vb2 = new VBox();
         VBox vb3 = new VBox();
+        VBox vb4 = new VBox();
         String style = "-fx-spacing: 30; -fx-pref-width: 270; -fx-alignment: center;";
         vb1.setStyle(style);
         vb2.setStyle(style);
         vb3.setStyle(style);
+        vb4.setStyle(style);
+
         for (int i = 0; i < listaIngredientes.size(); i++) {
             Ingrediente ing = listaIngredientes.get(i);
 
@@ -97,12 +107,15 @@ public class TelaAlmocoJantarController implements Initializable {
         for (int i = 0; i < checks.size(); i++) {
             if (i % 3 == 0) {
                 vb1.getChildren().add(checks.get(i));
+
             } else if (i % 2 == 0) {
                 vb2.getChildren().add(checks.get(i));
+
             } else {
                 vb3.getChildren().add(checks.get(i));
             }
         }
+        scroll.setContent(boxIngredientes);
         boxIngredientes.getChildren().setAll(vb1, vb2, vb3);
     }
 

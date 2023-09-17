@@ -27,6 +27,17 @@ public class TelaMenuController implements Initializable {
     private double fadeOpacityMax = 0.85;
 
     @FXML
+    public void botaoRanking() {
+        try {
+            Principal.root = FXMLLoader.load(getClass().getResource("/view/TelaRankingReceitas.fxml"));
+            Scene scene = new Scene(Principal.root);
+            Principal.palco.setScene(scene);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     public void mostrarTextoCafe() {
         FadeTransition fadeMostrar = new FadeTransition();
         fadeMostrar.setDuration(fadeDuration);

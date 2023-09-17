@@ -36,7 +36,10 @@
                                           <HBox styleClass="hbox">
                                              <children>
                                                 <Label fx:id="nomeReceita" styleClass="nomeReceita" text="Receita x:" />
-                                                <Label fx:id="avaliacao" styleClass="avaliacao" text="4,5★" />
+                                                <Label fx:id="avaliacao" styleClass="avaliacao" text="4,5★">
+                                                   <HBox.margin>
+                                                      <Insets right="5.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <Label styleClass="ingredientes" text="INGREDIENTES:" />

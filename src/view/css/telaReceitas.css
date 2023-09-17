@@ -62,3 +62,10 @@
 .scroll-pane .scroll-bar:vertical .thumb {
   -fx-border-radius: 10;
 }
+
+
+.scroll-bar:vertical .thumb {
+  -fx-padding: 0 0 0 10;
+  -fx-background-color: #A9A9A9;
+  -fx-cursor: hand;
+}

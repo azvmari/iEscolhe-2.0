@@ -27,6 +27,9 @@ BorderPane {
     -fx-opacity: 0.85;
 }
 
-.scroll-bar:vertical {
-    -fx-background-color: red;
+
+.scroll-bar:vertical .thumb {
+    -fx-padding: 0 0 0 10;
+    -fx-background-color: #A9A9A9;
+    -fx-cursor: hand;
 }

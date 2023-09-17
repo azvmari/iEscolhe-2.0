@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import controller.ReceitasSelecionadas;
@@ -19,6 +20,9 @@ public class TelaSobremesaController implements Initializable {
 
     ControleIngredientes ci = new ControleIngredientes();
     ArrayList<Ingrediente> listaIngredientes = ci.listarIngredientes();
+
+    @FXML
+    private ScrollPane scroll;
 
     @FXML
     private HBox boxIngredientes;
@@ -67,6 +71,7 @@ public class TelaSobremesaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         ArrayList<Ingrediente> listaIngredientes = new ArrayList<>();
 
         try {
@@ -77,7 +82,7 @@ public class TelaSobremesaController implements Initializable {
         VBox vb1 = new VBox();
         VBox vb2 = new VBox();
         VBox vb3 = new VBox();
-        String style = "-fx-spacing: 30; -fx-pref-width: 250; -fx-alignment: center";
+        String style = "-fx-spacing: 30; -fx-pref-width: 270; -fx-alignment: center";
         vb1.setStyle(style);
         vb2.setStyle(style);
         vb3.setStyle(style);
@@ -87,7 +92,7 @@ public class TelaSobremesaController implements Initializable {
 
             if (ing.getCategoria().contains("sobremesa")) {
                 CheckBox cb = new CheckBox();
-                cb.setStyle("-fx-text-fill: #fff; -fx-font-size: 24; -fx-pref-width: 250;");
+                cb.setStyle("-fx-text-fill: #fff; -fx-font-size: 24; -fx-pref-width: 270;");
                 cb.setText(ing.getNome());
                 cb.setId(ing.getIdentificador() + "");
 

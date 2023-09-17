@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="905.0" styleClass="tela" stylesheets="@css/telaReceitas.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllerTelas.TelaReceitasController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="905.0" styleClass="tela" stylesheets="@css/telaReceitas.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.controllerTelas.TelaRankingReceitasController">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                   <Font size="23.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" top="5.0" />
+                  <Insets bottom="10.0" left="5.0" top="5.0" />
                </VBox.margin>
             </Label>
             <ScrollPane fx:id="scroll" hbarPolicy="NEVER" prefHeight="447.0" prefWidth="806.0" style="-fx-background-color: #ff1d05; -fx-border-color: #ff1d05;">
@@ -36,7 +36,10 @@
                                           <HBox styleClass="hbox">
                                              <children>
                                                 <Label fx:id="nomeReceita" styleClass="nomeReceita" text="Receita x:" />
-                                                <Label fx:id="avaliacao" styleClass="avaliacao" text="4,5★" />
+                                                <Label fx:id="avaliacao" styleClass="avaliacao" text="4,5★">
+                                                   <HBox.margin>
+                                                      <Insets right="10.0" />
+                                                   </HBox.margin></Label>
                                              </children>
                                           </HBox>
                                           <Label styleClass="ingredientes" text="Ingredientes" />
@@ -61,7 +64,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" style="-fx-border-color: #e61a06; -fx-border-style: hidden hidden solid hidden; -fx-border-width: 8;">
                <children>
-                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;">
+                  <Button mnemonicParsing="false" onAction="#botaoVoltar" style="-fx-background-color: transparent;" styleClass="botoes" stylesheets="@css/global.css">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
