@@ -15,19 +15,19 @@ public class MelhoresReceitasjdbc implements InterfaceMelhoresReceitas {
     @Override
     public ArrayList<ReceitaDTO> listarMelhoresReceitas() {
 
-        String sql = "SELECT r.id AS id , r.nome AS nome, m.descricao AS descricao, AVG(a.avaliacao) as media_avaliacao\r\n"
-                + //
-                " FROM receita AS r" + //
-                " INNER JOIN (" + //
-                " SELECT idReceita" + //
-                " FROM avaliacaousuario" + //
-                " GROUP BY idReceita" + //
-                " ORDER BY AVG(avaliacao) DESC" + //
-                " LIMIT 10" + //
-                ") AS top_receitas ON r.id = top_receitas.idReceita" + //
-                " INNER JOIN mododepreparo AS m ON r.id_mododepreparo = m.id" + //
-                " LEFT JOIN avaliacaousuario AS a ON r.id = a.idReceita" + //
-                " GROUP BY r.id, r.nome, m.descricao" + //
+        String sql = "SELECT r.id AS id , r.nome AS nome, m.descricao AS descricao, AVG(a.avaliacao) as media_avaliacao "
+                +
+                " FROM receita AS r" +
+                " INNER JOIN (" +
+                " SELECT idReceita" +
+                " FROM avaliacaousuario" +
+                " GROUP BY idReceita" +
+                " ORDER BY AVG(avaliacao) DESC" +
+                " LIMIT 10" +
+                ") AS top_receitas ON r.id = top_receitas.idReceita" +
+                " INNER JOIN mododepreparo AS m ON r.id_mododepreparo = m.id" +
+                " LEFT JOIN avaliacaousuario AS a ON r.id = a.idReceita" +
+                " GROUP BY r.id, r.nome, m.descricao" +
                 " ORDER BY media_avaliacao DESC; ";
         PreparedStatement pst;
         Connection conexao;

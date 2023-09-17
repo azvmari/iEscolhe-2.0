@@ -24,7 +24,7 @@ public class ReceitaDTO {
     }
 
     public ReceitaDTO() {
-
+        this.fonte = "Tudo Gostoso";
     }
 
     public String getFonte() {
