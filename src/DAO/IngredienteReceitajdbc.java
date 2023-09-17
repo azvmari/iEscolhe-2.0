@@ -31,7 +31,7 @@ public class IngredienteReceitajdbc implements InterfaceIngredienteReceita {
 
     @Override
     public int salvarQuantidadeIngredienteReceita() {
-        String sql = "SELECT COUNT(*) AS total FROM ingrediente_receita";
+        String sql = "SELECT *FROM Vir";
         PreparedStatement pst;
         Connection conexao;
         ResultSet rs;

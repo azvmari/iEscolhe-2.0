@@ -75,7 +75,7 @@ public class Usuariojdbc implements InterfaceUsuarioDao {
     }
 
     public ArrayList<Usuario> listarUsuarios() {
-        String sql = "select  id AS id, nome AS nome, usuario_nome AS usuario_nome, senha AS senha FROM usuario";
+        String sql = "select  * from vUsu";
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
         // new ConnectionFactory();

@@ -11,7 +11,7 @@ public class Ingredientejbdc implements InterfaceIngredienteDAO {
     @Override
     public ArrayList<Ingrediente> listarIngredientes() {
 
-        String sql = "select i.id As id, i.nome AS nome, i.categoria AS categoria from ingrediente AS i";
+        String sql = "select * from vI";
         PreparedStatement pst;
         Connection conexao;
         ResultSet rs;
