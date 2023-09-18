@@ -57,10 +57,7 @@ public class Receitajdbc implements InterfaceReceita {
 
     @Override
     public ArrayList<ReceitaDTO> listarReceitas() {
-        String sql = "SELECT r.id AS idReceita, r.nome AS nome, " +
-                " m.descricao from receita AS r " +
-                "INNER JOIN mododepreparo AS m  ON " +
-                "r.id_mododepreparo = m.id ORDER BY r.nome ASC ";
+        String sql = " select * from Vreceita";
         PreparedStatement pst;
         Connection conexao;
         ResultSet rs;
